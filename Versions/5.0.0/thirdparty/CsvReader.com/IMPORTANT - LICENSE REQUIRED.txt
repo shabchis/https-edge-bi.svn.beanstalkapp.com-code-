@@ -1,0 +1,5 @@
+Before this goes to production we will need to buy a license.
+
+http://www.csvreader.com/purchase.php
+
+(Doron 2011/4/5)

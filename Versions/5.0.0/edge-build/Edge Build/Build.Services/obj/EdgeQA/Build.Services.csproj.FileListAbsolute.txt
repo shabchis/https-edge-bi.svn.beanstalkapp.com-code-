@@ -1,0 +1,9 @@
+D:\Edge\Code\Codebase\EDGE-MERGE\deployment\EdgeQA\Seperia\2.9.1\Services\Services\Edge.Services.config
+D:\Edge\Code\Codebase\EDGE-MERGE\deployment\EdgeQA\Seperia\2.9.1\Services\Services\Build Project.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\deployment\EdgeQA\Seperia\2.9.1\Services\Services\Build Project.pdb
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-build\Edge Build\Build.Services\obj\EdgeQA\Build.Services.csprojResolveAssemblyReference.cache
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-build\Edge Build\Build.Services\obj\EdgeQA\Build Project.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-build\Edge Build\Build.Services\obj\EdgeQA\Build Project.pdb
+D:\Edge\Code\Codebase\EDGE-MERGE\deployment\EDGE1\Seperia\2.9.1QA\Services\Services\Edge.Services.config
+D:\Edge\Code\Codebase\EDGE-MERGE\deployment\EDGE1\Seperia\2.9.1QA\Services\Services\Build Project.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\deployment\EDGE1\Seperia\2.9.1QA\Services\Services\Build Project.pdb
