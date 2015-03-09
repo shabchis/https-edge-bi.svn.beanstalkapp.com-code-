@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='_ConversionReport_Files/ConversionReport.xslt'?>
+<UpgradeLog>
+  <Properties>
+    <Property Name="Project" Value="Edge.Data.Object.TableViewer_V4.0.3" />
+    <Property Name="Project File" Value="D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.TableViewer_V4.0.3\Edge.Data.Object.TableViewer_V4.0.3.csproj" />
+    <Property Name="Date" Value="יום ראשון 23 ספטמבר 2012" />
+    <Property Name="Time" Value="10:44" />
+  </Properties>
+  <Event ErrorLevel="0" Project="D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.TableViewer_V4.0.3\Edge.Data.Object.TableViewer_V4.0.3.csproj" Source="..\Edge.Data.Object.TableViewer_V4.0.3.csproj" Description="Project was successfully converted: 'D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.TableViewer_V4.0.3\Edge.Data.Object.TableViewer_V4.0.3.csproj' to 'D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.TableViewer_V4.0.3\Edge.Data.Object.TableViewer_V4.0.3.sqlproj'" />
+  <Event ErrorLevel="3" Project="D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.TableViewer_V4.0.3\Edge.Data.Object.TableViewer_V4.0.3.csproj" Source="..\Edge.Data.Object.TableViewer_V4.0.3.csproj" Description="Converted" />
+</UpgradeLog>

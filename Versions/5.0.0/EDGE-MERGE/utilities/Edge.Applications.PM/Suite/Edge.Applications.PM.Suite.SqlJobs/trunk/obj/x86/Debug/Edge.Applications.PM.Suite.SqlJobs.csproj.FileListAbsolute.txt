@@ -1,0 +1,14 @@
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\bin\Debug\Edge.Applications.PM.Suite.SqlJobs.exe.config
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\bin\Debug\Edge.Applications.PM.Suite.SqlJobs.exe
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\bin\Debug\Edge.Applications.PM.Suite.SqlJobs.pdb
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\bin\Debug\Edge.Core.dll
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\bin\Debug\Microsoft.SqlServer.DmfSqlClrWrapper.dll
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\bin\Debug\log4net.dll
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\bin\Debug\Edge.Core.pdb
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\obj\x86\Debug\Edge.Applications.PM.Suite.SqlJobs.FrmSqlJobs.resources
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\obj\x86\Debug\Edge.Applications.PM.Suite.SqlJobs.Properties.Resources.resources
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\obj\x86\Debug\Edge.Applications.PM.Suite.SqlJobs.exe
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.SqlJobs\trunk\obj\x86\Debug\Edge.Applications.PM.Suite.SqlJobs.pdb

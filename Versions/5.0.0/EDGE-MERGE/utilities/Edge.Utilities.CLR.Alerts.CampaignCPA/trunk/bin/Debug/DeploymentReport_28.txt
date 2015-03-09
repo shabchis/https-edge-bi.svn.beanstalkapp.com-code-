@@ -1,0 +1,28 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [Edge.Utilities.CLR.Alerts.CampaignCPA] (Assembly)
+     Create
+       [Edge.Utilities.CLR.Alerts.CampaignCPA] (Assembly)
+       [dbo].[Func_AdgroupCpaAlerts] (Function)
+
+** Supporting actions
+     Drop
+       [dbo].[CLR_Alerts_ConversionAnalysis] (Procedure)
+       [dbo].[CLR_Alerts_ConversionAnalysis_Adgroup] (Procedure)
+     Create
+       [dbo].[CLR_Alerts_ConversionAnalysis] (Procedure)
+       [dbo].[CLR_Alerts_ConversionAnalysis_Adgroup] (Procedure)
+
+If this deployment is executed, changes to [dbo].[CLR_Alerts_ConversionAnalysis_Adgroup] might introduce run-time errors in [dbo].[ADGROUP_Alerts_Report].
+The project and target databases have different collation settings. Deployment errors might occur.
+

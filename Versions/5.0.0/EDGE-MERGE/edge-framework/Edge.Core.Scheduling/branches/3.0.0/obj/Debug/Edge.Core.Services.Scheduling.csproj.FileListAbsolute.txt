@@ -1,0 +1,1 @@
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\branches\3.0.0\obj\Debug\Edge.Core.Services.Scheduling.csprojResolveAssemblyReference.cache
