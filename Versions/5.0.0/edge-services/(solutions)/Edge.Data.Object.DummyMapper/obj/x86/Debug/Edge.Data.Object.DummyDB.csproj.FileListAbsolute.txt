@@ -1,7 +1,0 @@
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.DummyMapper\obj\x86\Debug\ResolveAssemblyReference.cache
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.DummyMapper\bin\Debug\Edge.Data.Object.DummyDB.exe
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.DummyMapper\bin\Debug\Edge.Data.Object.DummyDB.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.DummyMapper\bin\Debug\Edge.Data.Objects.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.DummyMapper\bin\Debug\Edge.Data.Objects.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.DummyMapper\obj\x86\Debug\Edge.Data.Object.DummyDB.exe
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.Object.DummyMapper\obj\x86\Debug\Edge.Data.Object.DummyDB.pdb

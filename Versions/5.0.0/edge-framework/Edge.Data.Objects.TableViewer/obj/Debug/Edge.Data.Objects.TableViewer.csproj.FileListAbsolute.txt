@@ -1,5 +1,0 @@
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects.TableViewer\bin\Debug\Edge.Data.Objects.TableViewer.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects.TableViewer\bin\Debug\Edge.Data.Objects.TableViewer.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects.TableViewer\obj\Debug\ResolveAssemblyReference.cache
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects.TableViewer\obj\Debug\Edge.Data.Objects.TableViewer.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects.TableViewer\obj\Debug\Edge.Data.Objects.TableViewer.pdb
