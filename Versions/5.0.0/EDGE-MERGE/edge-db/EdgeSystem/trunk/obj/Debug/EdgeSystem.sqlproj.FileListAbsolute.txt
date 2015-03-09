@@ -1,0 +1,9 @@
+D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeSystem\trunk\bin\Debug\EdgeSystem.dacpac
+D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeSystem\trunk\bin\Debug\EdgeSystem.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeSystem\trunk\bin\Debug\EdgeSystem.pdb
+D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeSystem\trunk\obj\Debug\Model.xml
+D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeSystem\trunk\obj\Debug\refactor.xml
+D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeSystem\trunk\obj\Debug\postdeploy.sql
+D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeSystem\trunk\obj\Debug\predeploy.sql
+D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeSystem\trunk\obj\Debug\EdgeSystem.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeSystem\trunk\obj\Debug\EdgeSystem.pdb

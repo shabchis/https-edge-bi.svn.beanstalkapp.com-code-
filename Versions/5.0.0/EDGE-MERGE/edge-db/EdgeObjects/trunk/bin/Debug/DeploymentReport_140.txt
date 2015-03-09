@@ -1,0 +1,28 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [EdgeObjects] (Assembly)
+     Create
+       [EdgeObjects] (Assembly)
+       [dbo].[CLR_GetTablesList] (Procedure)
+
+** Supporting actions
+     Drop
+       [dbo].[Enums_UpdateFromAssembly] (Procedure)
+       [dbo].[GetTablesList] (Procedure)
+       [dbo].[GetTableStructureByName] (Procedure)
+     Create
+       [dbo].[Enums_UpdateFromAssembly] (Procedure)
+       [dbo].[GetTableStructureByName] (Procedure)
+
+If this deployment is executed, [dbo].[GetTablesList] will be dropped and not re-created.
+

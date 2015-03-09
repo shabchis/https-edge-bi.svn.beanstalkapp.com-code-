@@ -1,0 +1,14 @@
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\obj\Debug\ResolveAssemblyReference.cache
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\bin\Debug\Edge.Data.Pipeline.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\bin\Debug\Edge.Data.Pipeline.pdb
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\bin\Debug\DataStreams.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\bin\Debug\Edge.Core.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\bin\Debug\GotDotNet.XPath.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\bin\Debug\Newtonsoft.Json.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\bin\Debug\log4net.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\bin\Debug\Edge.Core.pdb
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\bin\Debug\DataStreams.xml
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\obj\Debug\Edge.Data.Pipeline.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\obj\Debug\Edge.Data.Pipeline.pdb
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Pipeline\branches\3.0.0\obj\Debug\Edge.Data.Pipeline.csprojResolveAssemblyReference.cache

@@ -1,0 +1,4925 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataSchemaModel FileFormatVersion="1.2" SchemaVersion="2.4" DspName="Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider" CollationLcid="1037" CollationCaseSensitive="False" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+	<Header>
+		<CustomData Category="AnsiNulls">
+			<Metadata Name="AnsiNulls" Value="False" />
+		</CustomData>
+		<CustomData Category="QuotedIdentifier">
+			<Metadata Name="QuotedIdentifier" Value="False" />
+		</CustomData>
+		<CustomData Category="CompatibilityMode">
+			<Metadata Name="CompatibilityMode" Value="100" />
+		</CustomData>
+		<CustomData Category="Reference" Type="Assembly">
+			<Metadata Name="LogicalName" Value="EdgeSystem.dll" />
+			<Metadata Name="FileName" Value="D:\EDGE\CODEBASE\EDGE-MERGE\EDGE-DB\EDGESYSTEM\TRUNK\OBJ\DEBUG\EDGESYSTEM.DLL" />
+			<Metadata Name="AssemblyName" Value="EdgeSystem" />
+			<Metadata Name="PermissionSet" Value="SAFE" />
+			<Metadata Name="Owner" Value="" />
+			<Metadata Name="GenerateSqlClrDdl" Value="True" />
+			<Metadata Name="IsVisible" Value="True" />
+			<Metadata Name="IsModelAware" Value="True" />
+			<Metadata Name="SkipCreationIfEmpty" Value="True" />
+			<Metadata Name="AssemblySymbolsName" Value="D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeSystem\trunk\obj\Debug\EdgeSystem.pdb" />
+		</CustomData>
+		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
+	</Header>
+	<Model>
+		<Element Type="SqlDatabaseOptions">
+			<Property Name="Collation" Value="Hebrew_CI_AS" />
+			<Property Name="IsAnsiPaddingOn" Value="False" />
+			<Property Name="IsQuotedIdentifierOn" Value="False" />
+			<Property Name="IsCursorDefaultScopeGlobal" Value="True" />
+			<Property Name="IsTornPageProtectionOn" Value="False" />
+			<Property Name="IsFullTextEnabled" Value="True" />
+			<Property Name="CompatibilityMode" Value="100" />
+			<Property Name="DefaultLanguage" Value="" />
+			<Property Name="DefaultFullTextLanguage" Value="" />
+			<Relationship Name="DefaultFilegroup">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[PRIMARY]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[Base64ToString]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+
+DECLARE 
+@ByteArray INT,
+@OLEResult INT
+
+
+EXECUTE @OLEResult = sp_OACreate 'ScriptUtils.ByteArray', @ByteArray OUT
+IF @OLEResult <> 0 PRINT 'ScriptUtils.ByteArray problem'
+
+--Set a charset if needed.
+execute @OLEResult = sp_OASetProperty @ByteArray, 'CharSet', "UTF-8"
+IF @OLEResult <> 0 PRINT 'CharSet problem'
+
+--Set the base64 string
+EXECUTE @OLEResult = sp_OASetProperty @ByteArray, 'Base64', @Base64
+IF @OLEResult <> 0 PRINT 'Base64 problem'
+
+--Get a string data.
+EXECUTE @OLEResult = sp_OAGetProperty @ByteArray, 'String', @String OUTPUT
+IF @OLEResult <> 0 PRINT 'String problem'
+
+--Or you can get the data as binary/image.
+--Declare @Binary varbinary(4000)
+--Declare @Binary image
+--execute @OLEResult = sp_OAGetProperty @ByteArray, 'ByteArray', @Binary OUTPUT
+--IF @OLEResult <> 0 PRINT 'ByteArray problem']]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[Base64ToString].[@Base64]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[Base64ToString].[@String]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Base64ToString].[@Base64]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="4000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Base64ToString].[@String]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="4000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="232" />
+				<Property Name="Length" Value="1178" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xD;&#xA;-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;&lt;Author,,Name&gt;&#xD;&#xA;-- Create date: &lt;Create Date,,&gt;&#xD;&#xA;-- Description:&#x9;&lt;Description,,&gt;&#xD;&#xA;-- =============================================&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;/* Base64 decoder fot T-SQL */&#xD;&#xA;CREATE PROCEDURE [dbo].[Base64ToString]&#xD;&#xA;(&#xD;&#xA;&#x9;@Base64 VARCHAR(4000),&#xD;&#xA;&#x9;@String VARCHAR(4000) OUTPUT&#xD;&#xA;) AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlScalarFunction" Name="[dbo].[ConvertFromBase64CLR]">
+			<Property Name="IsAnsiNullsOn" />
+			<Property Name="IsQuotedIdentifierOn" />
+			<Relationship Name="FunctionBody">
+				<Entry>
+					<Element Type="SqlClrFunctionImplementation">
+						<Property Name="MethodName" Value="ConvertFromBase64CLR" />
+						<Property Name="ClassName" Value="UserDefinedFunctions" />
+						<Relationship Name="Assembly">
+							<Entry>
+								<References Name="[EdgeSystem]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ConvertFromBase64CLR].[@toDecode]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="4000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Type">
+				<Entry>
+					<Element Type="SqlTypeSpecifier">
+						<Property Name="Length" Value="4000" />
+						<Relationship Name="Type">
+							<Entry>
+								<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlScalarFunction" Name="[dbo].[ConvertToBase64CLR]">
+			<Property Name="IsAnsiNullsOn" />
+			<Property Name="IsQuotedIdentifierOn" />
+			<Relationship Name="FunctionBody">
+				<Entry>
+					<Element Type="SqlClrFunctionImplementation">
+						<Property Name="MethodName" Value="ConvertToBase64CLR" />
+						<Property Name="ClassName" Value="UserDefinedFunctions" />
+						<Relationship Name="Assembly">
+							<Entry>
+								<References Name="[EdgeSystem]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ConvertToBase64CLR].[@toEncode]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="4000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Type">
+				<Entry>
+					<Element Type="SqlTypeSpecifier">
+						<Property Name="Length" Value="4000" />
+						<Relationship Name="Type">
+							<Entry>
+								<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Delivery]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[DeliveryID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[Account_ID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[Account_OriginalID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[ChannelID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[DateCreated]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[DateModified]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[Description]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="500" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[FileDirectory]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[TimePeriodDefinition]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[TimePeriodStart]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="7" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime2]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[TimePeriodEnd]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="7" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime2]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Delivery].[TimePeriodSplit]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[Delivery_Delete]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+	DELETE FROM [dbo].[Delivery]
+      WHERE DeliveryID=@deliveryID
+DELETE FROM [dbo].[DeliveryFile]
+       WHERE DeliveryID=@deliveryID
+DELETE FROM [dbo].[DeliveryFileParameters]
+       WHERE DeliveryID=@deliveryID
+DELETE FROM [dbo].[DeliveryParameters]
+      WHERE DeliveryID=@deliveryID
+DELETE FROM [dbo].DeliveryOutput
+      WHERE DeliveryID=@deliveryID
+DELETE FROM [dbo].DeliveryOutputParameters
+      WHERE DeliveryID=@deliveryID
+DELETE FROM [dbo].DeliveryOutputChecksum
+      WHERE DeliveryID=@deliveryID
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Delivery]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery_Delete].[@deliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFileParameters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFileParameters].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryParameters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryParameters].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum].[DeliveryID]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Delivery_Delete].[@deliveryID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="188" />
+				<Property Name="Length" Value="795" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;&lt;Alon Yaari&gt;&#xD;&#xA;-- Create date: &lt;14/9/2011&gt;&#xD;&#xA;-- Description:&#x9;&lt;Description,,&gt;&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].Delivery_Delete&#xD;&#xA; @deliveryID char(32)&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[Delivery_Get]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+--DELIVERY----------------
+SELECT [DeliveryID]
+      ,[Account_ID]
+      ,[ChannelID]
+      ,[Account_OriginalID]
+      ,[DateCreated]
+      ,[DateModified]     
+      ,[Description]
+      ,[FileDirectory]
+      ,[TimePeriodDefinition]
+      ,[TimePeriodStart]
+      ,[TimePeriodEnd]     
+  FROM [dbo].[Delivery]
+  WHERE [DeliveryID]=@deliveryID
+   ---------------DeliveryParameters---------
+  
+SELECT [DeliveryID]
+      ,[Key]
+      ,[Value]
+  FROM [dbo].[DeliveryParameters]
+   WHERE [DeliveryID]=@deliveryID
+   
+  ------------DELIVERY FILE---------------
+  SELECT [DeliveryID]
+      ,[FileID]
+      ,[Name]
+      ,[Status]      
+      ,[DateCreated]
+      ,[DateModified]
+      ,[FileCompression]
+      ,[SourceUrl]
+      ,[Location]
+      ,[FileSignature]
+  FROM [dbo].[DeliveryFile]
+   WHERE [DeliveryID]=@deliveryID
+   ORDER BY [FileID]
+   --------DeliveryFileParameters-----------
+   SELECT [DeliveryID]
+      ,[Name]
+      ,[Key]
+      ,[Value]
+  FROM [dbo].[DeliveryFileParameters]
+   WHERE [DeliveryID]=@deliveryID
+  ORDER BY [Name]
+  ----------DeliveryOutput
+  SELECT[DeliveryID]
+      ,[OutputID]
+      ,[AccountID]
+      ,[AccountOriginalID]
+      ,[ChannelID]
+      ,[Signature]
+      ,[Status]      
+      ,[TimePeriodStart]
+      ,[TimePeriodEnd]
+      ,[DateCreated]
+      ,[DateModified]
+      ,[PipelineInstanceID]
+  FROM [dbo].[DeliveryOutput]
+  WHERE [DeliveryID]=@deliveryID
+  ------------DeliveryOutputParameters------- 
+SELECT [DeliveryID]
+      ,[OutputID]
+      ,[Key]
+      ,[Value]
+  FROM [dbo].[DeliveryOutputParameters]
+  WHERE [DeliveryID]=@deliveryID
+  -----------OutputCheckSum--------
+  SELECT [DeliveryID]
+      ,[OutputID]
+      ,[MeasureName]
+      ,[Total]
+  FROM [dbo].[DeliveryOutputChecksum]
+  WHERE [DeliveryID]=@deliveryID
+  
+  
+  
+  
+ 
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Delivery]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[Account_ID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[ChannelID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[Account_OriginalID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[DateCreated]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[DateModified]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[FileDirectory]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[TimePeriodDefinition]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[TimePeriodStart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[TimePeriodEnd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery_Get].[@deliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryParameters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryParameters].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryParameters].[Key]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryParameters].[Value]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[FileID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[DateCreated]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[DateModified]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[FileCompression]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[SourceUrl]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[Location]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[FileSignature]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFileParameters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFileParameters].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFileParameters].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFileParameters].[Key]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFileParameters].[Value]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[AccountID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[AccountOriginalID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[ChannelID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Signature]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[TimePeriodStart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[TimePeriodEnd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DateCreated]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DateModified]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[PipelineInstanceID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[Key]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[Value]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum].[MeasureName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum].[Total]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Delivery_Get].[@deliveryID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Delivery_Get].[@deep]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="196" />
+				<Property Name="Length" Value="2191" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xD;&#xA;-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;&lt;Author,,Name&gt;&#xD;&#xA;-- Create date: &lt;Create Date,,&gt;&#xD;&#xA;-- Description:&#x9;&lt;Description,,&gt;&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].[Delivery_Get]&#xD;&#xA;@deliveryID as Char(32),&#xD;&#xA;@deep as bit&#x9;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[Delivery_GetByTimePeriod]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+--DECLARE @query AS NVARCHAR(MAX);
+/*set @query= 'SELECT DeliveryID FROM dbo.Delivery WHERE [AccountID]=' + @accountID + 
+			'and ChannelID=' + @channelID + 'and TargetPeriodStart='+@targetPeriodStart+
+			'and TargetPeriodEnd=' + @targetPeriodEnd
+exec (@query)*/
+
+SELECT DeliveryID FROM dbo.Delivery WHERE [Account_ID] = @accountID
+and ChannelID = @channelID
+and TimePeriodStart = @timePeriodStart
+and TimePeriodEnd = @timePeriodEnd
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Delivery]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[Account_ID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery_GetByTimePeriod].[@accountID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[ChannelID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery_GetByTimePeriod].[@channelID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[TimePeriodStart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery_GetByTimePeriod].[@timePeriodStart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[TimePeriodEnd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery_GetByTimePeriod].[@timePeriodEnd]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Delivery_GetByTimePeriod].[@channelID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Delivery_GetByTimePeriod].[@accountID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Delivery_GetByTimePeriod].[@timePeriodStart]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="7" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime2]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Delivery_GetByTimePeriod].[@timePeriodEnd]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="7" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime2]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="239" />
+				<Property Name="Length" Value="839" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;&lt;Shay Bar-Chen&gt;&#xD;&#xA;-- Create date: &lt;21/09/2011&gt;&#xD;&#xA;-- Description:&#x9;&lt;getting delivery by account id , channel and target period,,&gt;&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].[Delivery_GetByTimePeriod] &#xD;&#xA;@channelID int,&#xD;&#xA;@accountID int,&#xD;&#xA;@timePeriodStart datetime2,&#xD;&#xA;@timePeriodEnd datetime2&#xD;&#xA;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[DeliveryFile]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFile].[DeliveryID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFile].[FileID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFile].[Name]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFile].[DateCreated]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFile].[DateModified]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFile].[FileCompression]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFile].[SourceUrl]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFile].[Location]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="260" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFile].[Status]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFile].[FileSignature]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="400" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DeliveryFile_GetBySignature]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+SELECT Delivery.DeliveryID,Delivery.Account_ID,Delivery.FileDirectory
+  FROM [dbo].[Delivery] Delivery
+  Inner join [dbo].[DeliveryFile] Files
+  on Files.DeliveryID = Delivery.DeliveryID
+  where Files.FileSignature = @signature
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Delivery]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[Account_ID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Delivery].[FileDirectory]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[FileSignature]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryFile_GetBySignature].[@signature]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeliveryFile_GetBySignature].[@signature]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="400" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="52" />
+				<Property Name="Length" Value="382" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xD;&#xA;-- =============================================&#xD;&#xA;Create PROCEDURE [dbo].[DeliveryFile_GetBySignature] &#xD;&#xA;@signature NvarChar(400)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[DeliveryFileParameters]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFileParameters].[DeliveryID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFileParameters].[Name]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFileParameters].[Key]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryFileParameters].[Value]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[DeliveryOutput]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[DeliveryID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[OutputID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[AccountID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[ChannelID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[Signature]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="400" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[Status]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[PipelineInstanceID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bigint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[TimePeriodStart]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="7" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime2]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[TimePeriodEnd]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="7" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime2]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[DateCreated]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[DateModified]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutput].[AccountOriginalID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DeliveryOutput_Delete]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+DELETE FROM [dbo].DeliveryOutput
+      WHERE DeliveryID=@outputID
+DELETE FROM [dbo].DeliveryOutputParameters
+      WHERE DeliveryID=@outputID
+DELETE FROM [dbo].DeliveryOutputChecksum
+      WHERE DeliveryID=@outputID
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput_Delete].[@outputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum].[DeliveryID]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeliveryOutput_Delete].[@outputID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="188" />
+				<Property Name="Length" Value="500" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;&lt;Alon Yaari&gt;&#xD;&#xA;-- Create date: &lt;14/9/2011&gt;&#xD;&#xA;-- Description:&#x9;&lt;Description,,&gt;&#xD;&#xA;-- =============================================&#xD;&#xA;Create PROCEDURE [dbo].[DeliveryOutput_Delete]&#xD;&#xA; @outputID char(32)&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DeliveryOutput_Get]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+
+   ----------DeliveryOutput
+  SELECT[DeliveryID]
+      ,[OutputID]
+      ,[AccountID]
+      ,[AccountOriginalID]
+      ,[ChannelID]
+      ,[Signature]
+      ,[Status]      
+      ,[TimePeriodStart]
+      ,[TimePeriodEnd]
+      ,[DateCreated]
+      ,[DateModified]
+      ,[PipelineInstanceID]
+  FROM [dbo].[DeliveryOutput]
+  WHERE [OutputID]=@outputID  
+  ------------DeliveryOutputParameters------- 
+SELECT [DeliveryID]
+      ,[OutputID]
+      ,[Key]
+      ,[Value]
+  FROM [dbo].[DeliveryOutputParameters]
+  WHERE [OutputID]=@outputID  
+  
+  -----------OutputCheckSum--------
+  SELECT [DeliveryID]
+      ,[OutputID]
+      ,[MeasureName]
+      ,[Total]
+  FROM [dbo].[DeliveryOutputChecksum]
+  WHERE [OutputID]=@outputID  
+  
+ 
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[AccountID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[AccountOriginalID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[ChannelID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Signature]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[TimePeriodStart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[TimePeriodEnd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DateCreated]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DateModified]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[PipelineInstanceID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput_Get].[@outputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[Key]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[Value]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum].[MeasureName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum].[Total]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeliveryOutput_Get].[@outputID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="2" />
+				<Property Name="Length" Value="887" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xD;&#xA;CREATE PROCEDURE [dbo].[DeliveryOutput_Get]&#xD;&#xA;@outputID as Char(32)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DeliveryOutput_GetBySignature]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+select OutputID FROM dbo.DeliveryOutput WHERE [Signature] = @signature and
+(@exclude is null or OutputID != @exclude);
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Signature]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput_GetBySignature].[@signature]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput_GetBySignature].[@exclude]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeliveryOutput_GetBySignature].[@signature]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="400" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeliveryOutput_GetBySignature].[@exclude]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="191" />
+				<Property Name="Length" Value="427" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xD;&#xA;-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;&lt;Alon Yaari&gt;&#xD;&#xA;-- Create date: &lt;14/09/2011&gt;&#xD;&#xA;-- Description:&#x9;&lt;Description,,&gt;&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].DeliveryOutput_GetBySignature &#xD;&#xA;@signature NvarChar(400),&#xD;&#xA;@exclude char(32)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DeliveryOutput_GetByTimePeriod]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+--DECLARE @query AS NVARCHAR(MAX);
+/*set @query= 'SELECT DeliveryID FROM dbo.Delivery WHERE [AccountID]=' + @accountID + 
+			'and ChannelID=' + @channelID + 'and TargetPeriodStart='+@targetPeriodStart+
+			'and TargetPeriodEnd=' + @targetPeriodEnd
+exec (@query)*/
+
+SELECT OutputID FROM dbo.DeliveryOutput WHERE [AccountID] = @accountID
+and ChannelID = @channelID
+and TimePeriodStart = @timePeriodStart
+and TimePeriodEnd = @timePeriodEnd
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[AccountID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput_GetByTimePeriod].[@accountID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[ChannelID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput_GetByTimePeriod].[@channelID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[TimePeriodStart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput_GetByTimePeriod].[@timePeriodStart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[TimePeriodEnd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput_GetByTimePeriod].[@timePeriodEnd]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeliveryOutput_GetByTimePeriod].[@channelID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeliveryOutput_GetByTimePeriod].[@accountID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeliveryOutput_GetByTimePeriod].[@timePeriodStart]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="7" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime2]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeliveryOutput_GetByTimePeriod].[@timePeriodEnd]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="7" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime2]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="241" />
+				<Property Name="Length" Value="850" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xD;&#xA;-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;&lt;Shay Bar-Chen&gt;&#xD;&#xA;-- Create date: &lt;21/09/2011&gt;&#xD;&#xA;-- Description:&#x9;&lt;getting delivery by account id , channel and target period,,&gt;&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].[DeliveryOutput_GetByTimePeriod] &#xD;&#xA;@channelID int,&#xD;&#xA;@accountID int,&#xD;&#xA;@timePeriodStart datetime2,&#xD;&#xA;@timePeriodEnd datetime2&#xD;&#xA;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[DeliveryOutputChecksum]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutputChecksum].[DeliveryID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutputChecksum].[OutputID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutputChecksum].[MeasureName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutputChecksum].[Total]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Precision" Value="53" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[float]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[DeliveryOutputParameters]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutputParameters].[DeliveryID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutputParameters].[OutputID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutputParameters].[Key]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryOutputParameters].[Value]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[DeliveryParameters]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryParameters].[DeliveryID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryParameters].[Key]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[DeliveryParameters].[Value]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_DeliveryFile_Status]">
+			<Property Name="DefaultExpressionScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[((0))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[DeliveryFile]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[DeliveryFile].[Status]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="3" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_Log_DateRecorded]">
+			<Property Name="DefaultExpressionScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[(getdate())]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Log]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Log].[DateRecorded]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_Log_IsException]">
+			<Property Name="DefaultExpressionScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[((0))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Log]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Log].[IsException]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_ServiceEnvironmentEvent_TimeStarted]">
+			<Property Name="DefaultExpressionScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[(getdate())]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent].[TimeStarted]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_ServiceExecutionHost_TimeStarted]">
+			<Property Name="DefaultExpressionScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[(getdate())]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost].[TimeStarted]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_ServiceInstance_v3_ResumeCount]">
+			<Property Name="DefaultExpressionScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[((0))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ServiceInstance]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[ServiceInstance].[ResumeCount]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_ServiceInstance_v3_TimeCreated]">
+			<Property Name="DefaultExpressionScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[(getdate())]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ServiceInstance]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[ServiceInstance].[TimeCreated]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Log]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[ID]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Property Name="IdentitySeed" Value="1000000001" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bigint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[DateRecorded]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="7" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[MachineName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[ProcessID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[Source]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="255" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[MessageType]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[ServiceInstanceID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bigint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[AccountID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[Message]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[IsException]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="8" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Log].[ExceptionDetails]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[Output_Signature_Migration_Adwords_GND]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+
+DECLARE
+ @DeliveryID char(32)
+,@OutputID  char(32)
+,@AccountID int
+,@ChannelID int
+,@Signature nvarchar(400)
+,@Decode_Signature nvarchar(max)
+,@Status int
+,@PipelineInstanceID bigint
+,@TimePeriodStart datetime2(7)
+,@TimePeriodEnd datetime2(7)
+,@DateCreated datetime
+,@DateModified datetime
+,@TableName nvarchar(100)
+,@NewSignature nvarchar(max)
+,@SignaturePrefix nvarchar(100)
+
+
+	
+DECLARE _cursor CURSOR FOR
+SELECT
+	   DOutput.[DeliveryID]
+      ,DOutput.[OutputID]
+      ,DOutput.[AccountID]
+      ,DOutput.[ChannelID]
+      ,DOutput.[Signature]
+      ,dbo.ConvertFromBase64CLR(DOutput.[Signature])
+      ,DOutput.[Status]
+      ,DOutput.[PipelineInstanceID]
+      ,DOutput.[TimePeriodStart]
+      ,DOutput.[TimePeriodEnd]
+      ,DOutput.[DateCreated]
+      ,DOutput.[DateModified]
+      ,params.Value
+FROM  dbo.DeliveryOutput DOutput
+inner join [dbo].[DeliveryOutputParameters] as params
+  on params.DeliveryID collate Hebrew_CI_AS = DOutput.DeliveryID
+where channelid = 1 and [Key] like 'CommitTableName'
+and  DOutput.[Signature] = N'R29vZ2xlQWR3b3Jkc1NlYXJjaC1bOTVdLVtlZGdlLmJpLm1jY0BnbWFpbC5jb21dLVs4MjUtMzE4LTQxNzZdLVt7c3RhcnQ6e2FsaWduOidTdGFydCcsZGF0ZTonMjAxMi0wNi0wNlQwMDowMDowMCd9LGVuZDp7YWxpZ246J0VuZCcsZGF0ZTonMjAxMi0wNi0wNlQyMzo1OTo1OS45OTk5OTk5J319XS1bQURfUEVSRk9STUFOQ0VfUkVQT1JUfEtFWVdPUkRTX1BFUkZPUk1BTkNFX1JFUE9SVF0='
+
+
+OPEN _cursor
+
+
+/***/--Print 'open cursor'
+
+
+FETCH NEXT FROM _cursor --FOR UPDATE
+INTO @DeliveryID ,@OutputID  ,@AccountID ,@ChannelID ,@Signature ,@Decode_Signature ,@Status ,@PipelineInstanceID ,@TimePeriodStart 
+,@TimePeriodEnd ,@DateCreated ,@DateModified, @TableName
+
+
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+
+/***/--print 'Table Name= '+ @TableName
+
+ SET @SignaturePrefix = 
+    (
+		select value
+		from dbo.SplitString(@Decode_Signature, '-')
+		where zeroBasedOccurance=0
+    )
+print 'Current Prefix = '+@SignaturePrefix
+
+--Google
+print 'checking table name'+ @TableName
+If @TableName like '"Paid_API_AllColumns_v29"'
+	BEGIN
+		--print 'Paid_API_AllColumns_v29:'
+		--print REPLACE(@Decode_Signature,@SignaturePrefix,'GoogleSearch')
+		
+		SET @NewSignature = dbo.ConvertToBase64CLR(REPLACE(@Decode_Signature,@SignaturePrefix,'GoogleSearch'))
+		--print 'New Encoded signature:'+ @NewSignature
+		--print 'Test: '+ dbo.ConvertFromBase64CLR(@NewSignature);
+	END
+	
+ELSE if @TableName like '"Paid_API_Content_v29"'
+	BEGIN
+	   -- print 'Paid_API_AllColumns_v29'
+	   -- print REPLACE(@Decode_Signature,@SignaturePrefix,'GDN')
+	    
+		SET @NewSignature = dbo.ConvertToBase64CLR(REPLACE(@Decode_Signature,@SignaturePrefix,'GDN'))
+		
+	--print 'New Encoded signature:'+ @NewSignature
+	--	print 'Test: '+ dbo.ConvertFromBase64CLR(@NewSignature);
+	END
+
+
+UPDATE  dbo.DeliveryOutput
+SET
+[Signature] = @NewSignature
+WHERE
+      [DeliveryID] = @DeliveryID
+	  AND [OutputID] = @OutputID
+	  AND [AccountID] = @AccountID
+      AND [ChannelID] = @ChannelID
+      AND [Signature] = @Signature
+      AND [Status] = @Status
+      AND [PipelineInstanceID] = @PipelineInstanceID
+      AND [TimePeriodStart] = @TimePeriodStart
+      AND [TimePeriodEnd] = @TimePeriodEnd
+      AND [DateCreated] = @DateCreated
+      AND [DateModified] = @DateModified
+ 
+ FETCH NEXT FROM _cursor --FOR UPDATE
+INTO @DeliveryID ,@OutputID  ,@AccountID ,@ChannelID ,@Signature ,@Decode_Signature ,@Status ,@PipelineInstanceID ,@TimePeriodStart 
+,@TimePeriodEnd ,@DateCreated ,@DateModified, @TableName     
+END
+
+CLOSE _cursor
+DEALLOCATE _cursor;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[char]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[char]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bigint]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[datetime2]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[datetime2]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[datetime]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[datetime]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[AccountID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[ChannelID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Signature]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ConvertFromBase64CLR]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[PipelineInstanceID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[TimePeriodStart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[TimePeriodEnd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DateCreated]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DateModified]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[Value]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[ChannelID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[Key]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SplitString]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SplitString].[value]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SplitString].[zeroBasedOccurance]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ConvertToBase64CLR]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Signature]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[AccountID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[ChannelID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[PipelineInstanceID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[TimePeriodStart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[TimePeriodEnd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DateCreated]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DateModified]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="211" />
+				<Property Name="Length" Value="3822" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;Shay Barchen&#xD;&#xA;-- Create date: 21.06.2012&#xD;&#xA;-- Description:&#x9;Signature migration for Adwords services&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].[Output_Signature_Migration_Adwords_GND]&#xD;&#xA;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_CheckSum]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[DeliveryOutputChecksum].[DeliveryID]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[DeliveryOutputChecksum].[OutputID]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[DeliveryOutputChecksum].[MeasureName]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputChecksum]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="5" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_DeliveryOutput]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[DeliveryOutput].[DeliveryID]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[DeliveryOutput].[OutputID]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="4" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_DeliveryOutputParameters]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[DeliveryOutputParameters].[DeliveryID]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[DeliveryOutputParameters].[OutputID]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[DeliveryOutputParameters].[Key]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="6" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_ServiceEnvironmentHost]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[ServiceExecutionHost].[HostName]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_ServiceInstance_v3]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[ServiceInstance].[InstanceID]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ServiceInstance]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[ServiceEnvironmentEvent]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceEnvironmentEvent].[EventType]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceEnvironmentEvent].[EndpointName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceEnvironmentEvent].[EndpointAddress]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="500" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceEnvironmentEvent].[TimeStarted]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="9" />
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ServiceEnvironmentEvent_List]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select EventType, EndpointName, EndpointAddress from ServiceEnvironmentEvent;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent].[EventType]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent].[EndpointName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent].[EndpointAddress]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="314" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].ServiceEnvironmentEvent_List &#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ServiceEnvironmentEvent_Register]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+    delete from ServiceEnvironmentEvent where EventType = @eventType;
+	insert into ServiceEnvironmentEvent (EventType, EndpointName, EndpointAddress)
+		values (@eventType, @endpointName, @endpointAddress);
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent].[EventType]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent_Register].[@eventType]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent].[EndpointName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent].[EndpointAddress]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent_Register].[@endpointName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceEnvironmentEvent_Register].[@endpointAddress]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceEnvironmentEvent_Register].[@eventType]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceEnvironmentEvent_Register].[@endpointName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceEnvironmentEvent_Register].[@endpointAddress]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="500" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="537" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].ServiceEnvironmentEvent_Register&#xD;&#xA;&#x9;@eventType nvarchar(50),&#xD;&#xA;&#x9;@endpointName nvarchar(100),&#xD;&#xA;&#x9;@endpointAddress nvarchar(500)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[ServiceExecutionHost]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceExecutionHost].[HostName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceExecutionHost].[HostGuid]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceExecutionHost].[EndpointName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceExecutionHost].[EndpointAddress]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="500" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceExecutionHost].[TimeStarted]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="10" />
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="13" />
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ServiceExecutionHost_List]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select HostName, HostGuid, EndpointName, EndpointAddress from ServiceExecutionHost;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost].[HostName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost].[HostGuid]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost].[EndpointName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost].[EndpointAddress]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="317" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].ServiceExecutionHost_List &#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ServiceExecutionHost_Register]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+    EXEC [dbo].[Service_HostUnregister] @hostName;
+	insert into ServiceExecutionHost (HostName, HostGuid, EndpointName, EndpointAddress)
+		values (@hostName, @hostGuid, @endpointName, @endpointAddress);
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost_Register].[@hostName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost].[HostName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost].[HostGuid]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost].[EndpointName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost].[EndpointAddress]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost_Register].[@hostGuid]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost_Register].[@endpointName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost_Register].[@endpointAddress]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceExecutionHost_Register].[@hostName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceExecutionHost_Register].[@hostGuid]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceExecutionHost_Register].[@endpointName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceExecutionHost_Register].[@endpointAddress]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="500" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="552" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].ServiceExecutionHost_Register&#xD;&#xA;&#x9;@hostName nvarchar(50),&#xD;&#xA;&#x9;@hostGuid char(32),&#xD;&#xA;&#x9;@endpointName nvarchar(100),&#xD;&#xA;&#x9;@endpointAddress nvarchar(500)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ServiceExecutionHost_Unregister]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	delete from ServiceExecutionHost where HostName = @hostName;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost].[HostName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceExecutionHost_Unregister].[@hostName]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceExecutionHost_Unregister].[@hostName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="324" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].ServiceExecutionHost_Unregister&#xD;&#xA;&#x9;@hostName nvarchar(50)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[ServiceInstance]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[InstanceID]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[ParentInstanceID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[ProfileID]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[ServiceName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[Progress]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Precision" Value="53" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[float]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[State]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[Outcome]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[TimeCreated]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="12" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[TimeInitialized]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[TimeStarted]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[TimeEnded]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[TimeLastPaused]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[TimeLastResumed]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[ResumeCount]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="11" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[Configuration]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlXmlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[xml]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[Scheduling_Status]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[Scheduling_Scope]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[Scheduling_MaxDeviationBefore]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bigint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[Scheduling_MaxDeviationAfter]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bigint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[Scheduling_RequestedTime]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[Scheduling_ExpectedStartTime]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[Scheduling_ExpectedEndTime]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[HostName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ServiceInstance].[HostGuid]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="14" />
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ServiceInstance_Get]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	
+	declare @parentInstanceID char(32);
+
+	while(1=1)
+	begin
+		if @stateInfoOnly = 1
+			select Progress, State, Outcome, TimeCreated ,TimeInitialized, TimeStarted, TimeEnded, TimeLastPaused, TimeLastResumed from ServiceInstance_v3 where InstanceID = @instanceID;
+		else
+			select * from ServiceInstance_v3 where InstanceID = @instanceID;
+
+		select @parentInstanceID = ParentInstanceID from ServiceInstance_v3 where InstanceID = @instanceID;
+		if (@parentInstanceID is null)
+			break;
+		else
+			set @instanceID = @parentInstanceID;
+	end
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[char]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Get].[@stateInfoOnly]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Get].[@instanceID]" />
+				</Entry>
+				<Entry />
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Get].[@instanceID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Get].[@stateInfoOnly]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="157" />
+				<Property Name="Length" Value="933" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;daterre&#xD;&#xA;-- Create date: &#xD;&#xA;-- Description:&#x9;&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].[ServiceInstance_Get] &#xD;&#xA;&#x9;@instanceID char(32),&#xD;&#xA;&#x9;@stateInfoOnly bit &#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ServiceInstance_Save]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	declare @isUpdate int;
+	select @isUpdate = count(1) from ServiceInstance_v3 where InstanceID = @instanceID;
+	
+	if (@isUpdate = 1)
+		update ServiceInstance_v3
+		set
+			[InstanceID] = @instanceID,
+			[ParentInstanceID] = @parentInstanceID,
+			[ProfileID] = @profileID,
+			[ServiceName] = @serviceName,
+			[HostName] = @hostName,
+			[HostGuid] = @hostGuid,
+			[Progress] = @progress,
+			[State] = @state,
+			[Outcome] = @outcome,
+			[TimeInitialized] = @timeInitialized,
+			[TimeStarted] = @timeStarted,
+			[TimeEnded] = @timeEnded,
+			[TimeLastPaused] = @timeLastPaused,
+			[TimeLastResumed] = @timeLastResumed,
+			[ResumeCount] = @resumeCount,
+			[Configuration] = ISNULL(@configuration, si.Configuration),
+			[Scheduling_Status] = @Scheduling_Status,
+			[Scheduling_Scope] = @Scheduling_Scope,
+			[Scheduling_MaxDeviationBefore] = @Scheduling_MaxDeviationBefore,
+			[Scheduling_MaxDeviationAfter] = @Scheduling_MaxDeviationAfter,
+			[Scheduling_RequestedTime] = @Scheduling_RequestedTime,
+			[Scheduling_ExpectedStartTime] = @Scheduling_ExpectedStartTime,
+			[Scheduling_ExpectedEndTime] = @Scheduling_ExpectedEndTime
+		from ServiceInstance_v3 si
+		where
+			InstanceID = @instanceID;
+	else
+		insert into ServiceInstance_v3
+		(
+			[InstanceID],
+			[ParentInstanceID],
+			[ProfileID],
+			[ServiceName],
+			[HostName],
+			[HostGuid],
+			[Progress],
+			[State],
+			[Outcome],
+			[TimeInitialized],
+			[TimeStarted],
+			[TimeEnded],
+			[TimeLastPaused],
+			[TimeLastResumed],
+			[ResumeCount],
+			[Configuration],
+			[Scheduling_Status],
+			[Scheduling_Scope],
+			[Scheduling_MaxDeviationBefore],
+			[Scheduling_MaxDeviationAfter],
+			[Scheduling_RequestedTime],
+			[Scheduling_ExpectedStartTime],
+			[Scheduling_ExpectedEndTime]
+		)
+		values
+		(
+			@instanceID,
+			@parentInstanceID,
+			@profileID,
+			@serviceName,
+			@hostName,
+			@hostGuid,
+			@progress,
+			@state,
+			@outcome,
+			@timeInitialized,
+			@timeStarted,
+			@timeEnded,
+			@timeLastPaused,
+			@timeLastResumed,
+			@resumeCount,
+			@configuration,
+			@Scheduling_Status,
+			@Scheduling_Scope,
+			@Scheduling_MaxDeviationBefore,
+			@Scheduling_MaxDeviationAfter,
+			@Scheduling_RequestedTime,
+			@Scheduling_ExpectedStartTime,
+			@Scheduling_ExpectedEndTime
+		);
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@instanceID]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@parentInstanceID]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@profileID]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@serviceName]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@hostName]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@hostGuid]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@progress]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@state]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@outcome]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@timeInitialized]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@timeStarted]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@timeEnded]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@timeLastPaused]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@timeLastResumed]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@resumeCount]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@configuration]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@Scheduling_Status]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@Scheduling_Scope]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@Scheduling_MaxDeviationBefore]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@Scheduling_MaxDeviationAfter]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@Scheduling_RequestedTime]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@Scheduling_ExpectedStartTime]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[ServiceInstance_Save].[@Scheduling_ExpectedEndTime]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@instanceID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@parentInstanceID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@profileID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@serviceName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@hostName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@hostGuid]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="32" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@progress]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Precision" Value="53" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[float]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@state]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@outcome]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@timeInitialized]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@timeStarted]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@timeEnded]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@timeLastPaused]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@timeLastResumed]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@resumeCount]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@configuration]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlXmlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[xml]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@Scheduling_Status]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@Scheduling_Scope]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@Scheduling_MaxDeviationBefore]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bigint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@Scheduling_MaxDeviationAfter]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bigint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@Scheduling_RequestedTime]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@Scheduling_ExpectedStartTime]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ServiceInstance_Save].[@Scheduling_ExpectedEndTime]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="157" />
+				<Property Name="Length" Value="3278" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;daterre&#xD;&#xA;-- Create date: &#xD;&#xA;-- Description:&#x9;&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE ServiceInstance_Save &#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@instanceID char(32),&#xD;&#xA;&#x9;@parentInstanceID char(32),&#xD;&#xA;&#x9;@profileID char(32),&#xD;&#xA;&#x9;@serviceName nvarchar(100),&#xD;&#xA;&#x9;@hostName nvarchar(50),&#xD;&#xA;&#x9;@hostGuid char(32),&#xD;&#xA;&#x9;@progress float,&#xD;&#xA;&#x9;@state int,&#xD;&#xA;&#x9;@outcome int,&#xD;&#xA;&#x9;@timeInitialized datetime,&#xD;&#xA;&#x9;@timeStarted datetime,&#xD;&#xA;&#x9;@timeEnded datetime,&#xD;&#xA;&#x9;@timeLastPaused datetime,&#xD;&#xA;&#x9;@timeLastResumed datetime,&#xD;&#xA;&#x9;@resumeCount int,&#xD;&#xA;&#x9;@configuration xml,&#xD;&#xA;&#x9;@Scheduling_Status int,&#xD;&#xA;&#x9;@Scheduling_Scope int,&#xD;&#xA;&#x9;@Scheduling_MaxDeviationBefore bigint,&#xD;&#xA;&#x9;@Scheduling_MaxDeviationAfter bigint,&#xD;&#xA;&#x9;@Scheduling_RequestedTime datetime,&#xD;&#xA;&#x9;@Scheduling_ExpectedStartTime datetime,&#xD;&#xA;&#x9;@Scheduling_ExpectedEndTime datetime&#xD;&#xA;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[SP_RollBack_DWH]">
+			<Property Name="BodyScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
+
+-- This SP will find the "pending roll back" delivery outputs, delete it from the DWH db, and change it's status to rolledback.
+-- The SP belongs to system db
+
+-- Start debug
+/*
+	Declare @DeliveryID nvarchar(4000)
+	Declare @Signature nvarchar(4000)
+	Declare @CommitTableName nvarchar(4000)
+
+	-- Set @Signature = 'ZmFjZWJvb2stWzYxXS1bNTk2ODQ0MTFdLVt7c3RhcnQ6e2FsaWduOidTdGFydCcsZGF0ZTonMjAxMi0wOC0wOFQwMDowMDowMCd9LGVuZDp7YWxpZ246J0VuZCcsZGF0ZTonMjAxMi0wOC0wOFQyMzo1OTo1OS45OTk5OTk5J319XQ=='
+	Set @CommitTableName = 'Paid_API_Allcolumns'
+*/
+-- End debug 
+
+Declare @DebugMode as bit;
+Declare @OutputIDs as nvarchar(4000);
+Declare @TableNames as nvarchar(4000);
+Declare @CurrentTableName as nvarchar(4000);
+Declare @CurrentOutputID as nvarchar(4000);
+Declare @DWHDB as nvarchar(4000);
+Declare @sql as nvarchar(4000);
+
+--	Drop table #OutputAndTable;
+--	Drop table #DistinctTables;
+	
+	set @DebugMode = 'False' ;
+	set @DWHDB = 'EdgeDWH';
+
+	Create table #OutputAndTable (OutputID Nvarchar(4000) not null, TableName Nvarchar(4000) not null)  ;
+
+-- The should ask for rollback per signature OR per commitTableName
+    If (@Signature is null and @CommitTableName is null)  Return;
+	
+	If (@Signature is not null and @CommitTableName is null) 	
+-- Find all the "pending roll back" statuses (7) in delivery output table for the specific signature. the data stored is table name and outputID
+	Begin
+		Insert into #OutputAndTable
+		select DO.OutputID as OutputID, DOP.Value as TableName
+		from [dbo].[DeliveryOutput] DO	
+		  left outer join dbo.DeliveryOutputParameters DOP
+			on DO.DeliveryID = DOP.DeliveryID and DO.OutputID = DOP.OutputID
+		where  DO.[Signature] = @Signature and DO.Status = 7 and DOP.[Key] = 'CommitTableName';
+	End
+	
+	
+	If (@Signature is null and @CommitTableName is not null) 	
+-- Find all the "pending roll back" statuses (7) in delivery output table for the specific commitTableName. the data stored is table name and outputID
+	Begin
+		Insert into #OutputAndTable
+		select DO.OutputID as OutputID, DOP.Value as TableName
+		from [dbo].[DeliveryOutput] DO	
+		  left outer join dbo.DeliveryOutputParameters DOP
+			on DO.DeliveryID = DOP.DeliveryID and DO.OutputID = DOP.OutputID
+		where  DO.Status = 7 and DOP.[Key] = 'CommitTableName' and DOP.Value = @CommitTableName;
+	End
+
+-- Distinct the table names	 
+	
+	Select distinct TableName
+	into #DistinctTables
+	from #OutputAndTable 
+
+-- Populate the table names list		
+	select @TableNames = COALESCE(@TableNames+'', '','''')+ ISNULL(TableName+',','''')
+	from  #DistinctTables;
+	
+		If (@DebugMode = 'True') print '@TableNames: ' + @TableNames;
+ 
+ -- For each table name - delete all the outputIDs in that table
+while LEN(@TableNames) > 0 
+	BEGIN 
+-- get current table 
+	set @CurrentTableName = SUBSTRING(@TableNames,0,CHARINDEX(',',@TableNames,0));
+		If (@DebugMode = 'True') print 'CurrentTableName: '+ @currentTableName;
+
+	
+ -- Clear and populate the OutputID list which belongs to the current table name
+	set @OutputIDs = ''''
+	select @OutputIDs = COALESCE(@OutputIDs+'', '''', '''')+ISNULL(OutputID+''',''','')
+	from  #OutputAndTable
+	where TableName = @CurrentTableName;
+	
+		If (@DebugMode = 'True')  print 'OutputIDs: ' +@OutputIDs
+		
+-- Remove the last comma and apostrophe 
+	set @OutputIDs = SUBSTRING(@OutputIDs,0,LEN(@OutputIDs)-1)
+		If (@DebugMode = 'True')  print 'OutputIDs: ' +@OutputIDs
+
+	set @sql = ''	
+	set @sql = 'delete from ['+ @DWHDB + '].[dbo].['+ @CurrentTableName +'] where outputID in ('+ @OutputIDs +')';
+		If (@DebugMode = 'True') print @sql
+	print ' Delete outputIDs for table: ' + @CurrentTableName;
+	 EXECUTE (@sql);
+
+-- After deletion set the status to "Rolledback" in the delivery output table
+	set @sql = ''
+	set @sql = 'update [dbo].[DeliveryOutput] 
+				set [Status] = 5 
+				where outputID in ('+ @OutputIDs +')';
+		If (@DebugMode = 'True') print @sql;
+	
+	EXECUTE (@sql)
+	print ' Set rolledback status for outputIDs: ' +@OutputIDs
+
+		print ' Delete outputIDs for table: ' + @CurrentTableName;	
+-- Delete the current table name from @TableNames
+	set @TableNames = SUBSTRING(@TableNames,CHARINDEX(',',@TableNames,0)+1,3999);
+		If (@DebugMode = 'True') print @TableNames;
+	
+	END	-- While end]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bit]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_RollBack_DWH].[@Signature]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_RollBack_DWH].[@CommitTableName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_RollBack_DWH].[#OutputAndTable]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[DeliveryID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[OutputID]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[Value]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Signature]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutput].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[Key]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeliveryOutputParameters].[Value]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_RollBack_DWH].[#OutputAndTable].[TableName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_RollBack_DWH].[#DistinctTables]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_RollBack_DWH].[#DistinctTables].[TableName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_RollBack_DWH].[#OutputAndTable].[OutputID]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DynamicObjects">
+				<Entry>
+					<Element Type="SqlDynamicColumnSource" Name="[dbo].[SP_RollBack_DWH].[#OutputAndTable]">
+						<Relationship Name="Columns">
+							<Entry>
+								<Element Type="SqlSimpleColumn" Name="[dbo].[SP_RollBack_DWH].[#OutputAndTable].[OutputID]">
+									<Property Name="IsNullable" Value="False" />
+									<Relationship Name="TypeSpecifier">
+										<Entry>
+											<Element Type="SqlTypeSpecifier">
+												<Property Name="Length" Value="4000" />
+												<Relationship Name="Type">
+													<Entry>
+														<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+													</Entry>
+												</Relationship>
+											</Element>
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+							<Entry>
+								<Element Type="SqlSimpleColumn" Name="[dbo].[SP_RollBack_DWH].[#OutputAndTable].[TableName]">
+									<Property Name="IsNullable" Value="False" />
+									<Relationship Name="TypeSpecifier">
+										<Entry>
+											<Element Type="SqlTypeSpecifier">
+												<Property Name="Length" Value="4000" />
+												<Relationship Name="Type">
+													<Entry>
+														<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+													</Entry>
+												</Relationship>
+											</Element>
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlDynamicColumnSource" Name="[dbo].[SP_RollBack_DWH].[#DistinctTables]">
+						<Relationship Name="Columns">
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[SP_RollBack_DWH].[#DistinctTables].[TableName]">
+									<Relationship Name="ExpressionDependencies">
+										<Entry>
+											<References Name="[dbo].[SP_RollBack_DWH].[#OutputAndTable].[TableName]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_RollBack_DWH].[@DeliveryID]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="4000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_RollBack_DWH].[@Signature]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="4000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_RollBack_DWH].[@CommitTableName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="4000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="4432" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE procedure [dbo].[SP_RollBack_DWH] &#xD;&#xA;( @DeliveryID nvarchar(4000),&#xD;&#xA;  @Signature nvarchar(4000), &#xD;&#xA;  @CommitTableName nvarchar(4000)) AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlInlineTableValuedFunction" Name="[dbo].[SplitString]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[SplitString].[@separator]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SplitString].[@str]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SplitString].[CTE1].[tokens].[p]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SplitString].[CTE1].[tokens].[b]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SplitString].[CTE1].[tokens].[a]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[dbo].[SplitString].[zeroBasedOccurance]" />
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[dbo].[SplitString].[value]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DynamicObjects">
+				<Entry>
+					<Element Type="SqlDynamicColumnSource" Name="[dbo].[SplitString].[CTE1].[tokens]">
+						<Relationship Name="Columns">
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[SplitString].[CTE1].[tokens].[p]" />
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[SplitString].[CTE1].[tokens].[a]" />
+							</Entry>
+							<Entry>
+								<Element Type="SqlComputedColumn" Name="[dbo].[SplitString].[CTE1].[tokens].[b]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="FunctionBody">
+				<Entry>
+					<Element Type="SqlScriptFunctionImplementation">
+						<Property Name="BodyScript">
+							<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[ (
+        with tokens(p, a, b) AS (
+            select 
+                1, 
+                1, 
+                charindex(@separator, @str)
+            union all
+            select
+                p + 1, 
+                b + 1, 
+                charindex(@separator, @str, b + 1)
+            from tokens
+            where b > 0
+        )
+        select
+            p-1 zeroBasedOccurance,
+            substring(
+                @str, 
+                a, 
+                case when b > 0 then b-a ELSE 4000 end) 
+            AS value
+        from tokens
+      )]]></Value>
+						</Property>
+						<Annotation Type="SysCommentsObjectAnnotation">
+							<Property Name="Length" Value="731" />
+							<Property Name="StartLine" Value="1" />
+							<Property Name="StartColumn" Value="1" />
+							<Property Name="HeaderContents" Value="CREATE function [dbo].[SplitString] &#xD;&#xA;    (&#xD;&#xA;        @str nvarchar(4000), &#xD;&#xA;        @separator char(1)&#xD;&#xA;    )&#xD;&#xA;    returns table&#xD;&#xA;    AS&#xD;&#xA;    return" />
+						</Annotation>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SplitString].[@str]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="4000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SplitString].[@separator]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[char]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlAssembly" Name="[EdgeSystem]">
+			<Relationship Name="AssemblySources">
+				<Entry>
+					<Element Type="SqlAssemblySource">
+						<Property Name="Source">
+							<Value><![CDATA[0x4D5A90000300000004000000FFFF0000B800000000000000400000000000000000000000000000000000000000000000000000000000000000000000800000000E1FBA0E00B409CD21B8014CCD21546869732070726F6772616D2063616E6E6F742062652072756E20696E20444F53206D6F64652E0D0D0A2400000000000000504500004C010300914EA2500000000000000000E00002210B010B00000800000006000000000000CE260000002000000040000000000010002000000002000004000000000000000400000000000000008000000002000000000000030040850000100000100000000010000010000000000000100000000000000000000000782600005300000000400000B002000000000000000000000000000000000000006000000C000000402500001C0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000080000000000000000000000082000004800000000000000000000002E74657874000000D4060000002000000008000000020000000000000000000000000000200000602E72737263000000B00200000040000000040000000A0000000000000000000000000000400000402E72656C6F6300000C0000000060000000020000000E00000000000000000000000000004000004200000000000000000000000000000000B0260000000000004800000002000500C8200000780400000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000133002002B00000001000011000F00FE16020000016F0500000A280600000A0A280700000A066F0800000A280900000A0B070C2B00082A00133002002B0000000100001100280700000A0F00FE16020000016F0500000A6F0A00000A0A06280B00000A280900000A0B070C2B00082A1E02280C00000A2A0042534A4201000100000000000C00000076342E302E33303331390000000005006C0000007C010000237E0000E8010000F001000023537472696E677300000000D80300000800000023555300E0030000100000002347554944000000F00300008800000023426C6F620000000000000002000001471502000900000000FA25330016000001000000090000000200000003000000020000000C0000000500000001000000010000000200000000000A0001000000000006003E0037000A00660051000600C300B0000F00D700000006000601E60006002601E6000A006A014F010600880137000600AD01A10100000000010000000000010001000100100019000000050001000100502000000000960070000A000100882000000000960085000A000200BF20000000008618980011000300000001009E0000000100A700190098001500290098001B0031009800110039009800110009007F0125004100900129004900B6012F004900C00134001100CA013A004900D60149004100DF014F000900980011002000230020002E000B0055002E0013005E002E001B00670040002300200040000480000000000000000000000000000000004401000004000000000000000000000001002E0000000000040000000000000000000000010045000000000000000000003C4D6F64756C653E004564676553797374656D2E646C6C0055736572446566696E656446756E6374696F6E73006D73636F726C69620053797374656D004F626A6563740053797374656D2E446174610053797374656D2E446174612E53716C54797065730053716C537472696E6700436F6E7665727446726F6D426173653634434C5200436F6E76657274546F426173653634434C52002E63746F7200746F4465636F646500746F456E636F64650053797374656D2E446961676E6F73746963730044656275676761626C6541747472696275746500446562756767696E674D6F6465730053797374656D2E52756E74696D652E436F6D70696C6572536572766963657300436F6D70696C6174696F6E52656C61786174696F6E734174747269627574650052756E74696D65436F6D7061746962696C697479417474726962757465004564676553797374656D004D6963726F736F66742E53716C5365727665722E5365727665720053716C46756E6374696F6E41747472696275746500546F537472696E6700436F6E766572740046726F6D426173653634537472696E670053797374656D2E5465787400456E636F64696E67006765745F415343494900476574537472696E67006F705F496D706C6963697400476574427974657300546F426173653634537472696E6700000000032000000000005106B30FDDC113499B9B70755E6CDDBB0008B77A5C561934E0890600011109110903200001052001011111042001010804010000000320000E0500011D050E04000012250520010E1D0505000111090E0807031D05110911090520011D050E0500010E1D050801000701000000000801000800000000001E01000100540216577261704E6F6E457863657074696F6E5468726F777301000000000000914EA25000000000020000001C0100005C2500005C07000052534453AE8EF31E8CECCF4B9364DB56E6314BEE01000000643A5C456467655C436F6465626173655C454447452D4D455247455C656467652D64625C4564676553797374656D5C7472756E6B5C6F626A5C44656275675C4564676553797374656D2E706462000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000A02600000000000000000000BE260000002000000000000000000000000000000000000000000000B026000000000000000000000000000000005F436F72446C6C4D61696E006D73636F7265652E646C6C0000000000FF250020001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100100000001800008000000000000000000000000000000100010000003000008000000000000000000000000000000100000000004800000058400000540200000000000000000000540234000000560053005F00560045005200530049004F004E005F0049004E0046004F0000000000BD04EFFE00000100000000000000000000000000000000003F000000000000000400000002000000000000000000000000000000440000000100560061007200460069006C00650049006E0066006F00000000002400040000005400720061006E0073006C006100740069006F006E00000000000000B004B4010000010053007400720069006E006700460069006C00650049006E0066006F0000009001000001003000300030003000300034006200300000002C0002000100460069006C0065004400650073006300720069007000740069006F006E000000000020000000300008000100460069006C006500560065007200730069006F006E000000000030002E0030002E0030002E003000000040000F00010049006E007400650072006E0061006C004E0061006D00650000004500640067006500530079007300740065006D002E0064006C006C00000000002800020001004C006500670061006C0043006F00700079007200690067006800740000002000000048000F0001004F0072006900670069006E0061006C00460069006C0065006E0061006D00650000004500640067006500530079007300740065006D002E0064006C006C0000000000340008000100500072006F006400750063007400560065007200730069006F006E00000030002E0030002E0030002E003000000038000800010041007300730065006D0062006C0079002000560065007200730069006F006E00000030002E0030002E0030002E003000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000C000000D03600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]]></Value>
+						</Property>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Authorizer">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlAssemblyFile" Name="[EdgeSystem].[EdgeSystem.pdb]">
+			<Property Name="Source">
+				<Value><![CDATA[0x4D6963726F736F667420432F432B2B204D534620372E30300D0A1A4453000000000200000200000017000000780000000000000015000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000C0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3800C0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0BCA3101380000000010000000100000000000000E00FFFF04000000038000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000BCA3101380000000010000000100000000000000F00FFFF0400000003800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000942E3101914EA25001000000AE8EF31E8CECCF4B9364DB56E6314BEE000000000000000001000000010000000000000000000000000000004191320100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000BCA310138000000001000000010000000000000FFFFFFFF040000000380000000000000FFFFFFFF00000000FFFFFFFF00000000FFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000BCA310138000000001000000010000000000000FFFFFFFF040000000380000000000000FFFFFFFF00000000FFFFFFFF00000000FFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000F862513FC607D311905300C04FA302A1C4454B99E9E6D211903F00C04FA302A10B9D865A1166D311BD2A0000F80849BD60A66E40CF64824CB6F042D48172A7991000000000000000AB9F70DE53B1A13AB7F68509314529C0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000560000000000000056000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FEEFFEEF01000000A400000000643A5C456467655C436F6465626173655C454447452D4D455247455C656467652D64625C4564676553797374656D5C7472756E6B5C434C525C436F6E7665727446726F6D426173653634434C522E63730000643A5C656467655C636F6465626173655C656467652D6D657267655C656467652D64625C6564676573797374656D5C7472756E6B5C636C725C636F6E7665727466726F6D626173653634636C722E6373000400000052000000000000000100000053000000030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001BE23001800000008C9CBCE6A4C1CD01010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000200000001000000020000000000000053000000280000001BE23001CD5429FF58000000010000005200000053000000650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000003E002A11000000006C010000000000002B000000000000000000000001000006000000000100000000436F6E7665727446726F6D426173653634434C520000001600031104000000380100002B00000000000000010000000A0024115553797374656D00120024115553797374656D2E44617461000000001A0024115553797374656D2E446174612E53716C436C69656E7400001A0024115553797374656D2E446174612E53716C54797065730000001E002411554D6963726F736F66742E53716C5365727665722E536572766572001E0020110200000001000011000000000000040043532431243030303000000022002011000000000100001100000000000000004465636F6465644279746573000000001E0020110100000001000011000000000000000072657475726E56616C756500020006002E000404C93FEAC6B359D649BC250902BBABB460000000004D0044003200000004010000040000000C00000001000500020006003A002A11000000005C020000000000002B0000000000000000000000020000062B0000000100000000436F6E76657274546F426173653634434C52001600031170010000280200002B0000002B000000010000001E002011020000000100001100000000000004004353243124303030300000002200201100000000010000110000000000000000746F456E636F646541734279746573001E0020110100000001000011000000000000000072657475726E56616C756500020006002E000404C93FEAC6B359D649BC250902BBABB460000000004D004400320000000401000004016A000C0000000100000602000600F20000005400000000000000010001002B000000000000000500000048000000000000000B000080010000000C000080140000000D000080250000000E000080290000000F0000800200030003004E00030053000300160002000300F2000000540000002B000000010001002B000000000000000500000048000000000000001300008001000000140000801900000015000080250000001600008029000000170000800200030003005A0003004A000300160002000300F40000000800000001000000000000001000000000000000240000003C0000006000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FFFFFFFF1A092FF12000000014020000610000000100000025000000010000003D000000010000000100000001000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000C00000018000000240000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002200251100000000040000000100436F6E7665727446726F6D426173653634434C5200001600291100000000040000000100303630303030303100002200251100000000700100000100436F6E76657274546F426173653634434C5200000000160029110000000070010000010030363030303030320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000FFFFFFFF1A092FF10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FFFFFFFF77093101010000000B00008B0C0015C60D000946600000003C0000002C00000060000000000000000000000016000000190000000000EEC00000000000000000FFFF000000000000FFFFFFFF00000000FFFF0000000000000000000000000A006002000000000000C80000000100000078C86A00000000000000000055736572446566696E656446756E6374696F6E730037314141414545380000002DBA2EF101006200000000002B00000000000000000000000000000000000000010000002B0000002B00000000000000000000000000000000000000020002000D01000000000100FFFFFFFF00000000560000000802000000000000FFFFFFFF00000000FFFFFFFF010001000000010000000000643A5C456467655C436F6465626173655C454447452D4D455247455C656467652D64625C4564676553797374656D5C7472756E6B5C434C525C436F6E7665727446726F6D426173653634434C522E637300000000FEEFFEEF010000000100000000010000000000000000000000FFFFFFFFFFFFFFFFFFFF0900FFFFFFFFFFFFFFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000942E3101914EA25001000000AE8EF31E8CECCF4B9364DB56E6314BEE7E0000002F4C696E6B496E666F002F6E616D6573002F7372632F686561646572626C6F636B002F7372632F66696C65732F643A5C656467655C636F6465626173655C656467652D6D657267655C656467652D64625C6564676573797374656D5C7472756E6B5C636C725C636F6E7665727466726F6D626173653634636C722E6373000400000006000000010000001E00000000000000110000000700000022000000080000000A00000006000000000000000500000000000000419132010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000E00000020000000DA00000038000000970100003800000000000000C80000008000000058000000280000003C030000440200002C0000007800000003000000130000000600000012000000070000000A0000000B00000008000000090000000C0000000D0000000E0000000F0000001100000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]]></Value>
+			</Property>
+			<Relationship Name="Assembly">
+				<Entry>
+					<References Name="[EdgeSystem]" />
+				</Entry>
+			</Relationship>
+		</Element>
+	</Model>
+</DataSchemaModel>

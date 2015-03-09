@@ -1,0 +1,22 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [Edge.Utilities.CLR.AccountAnalysisSettings].[SqlAssemblyProjectRoot] (Extended Property)
+       [dbo].[SP_CLR_SetAnalysisSettingColumn].[SqlAssemblyFile] (Extended Property)
+       [dbo].[SP_CLR_SetAnalysisSettingColumn].[SqlAssemblyFileLine] (Extended Property)
+     Alter
+       [Edge.Utilities.CLR.AccountAnalysisSettings] (Assembly)
+
+** Supporting actions
+
+The project and target databases have different collation settings. Deployment errors might occur.
+

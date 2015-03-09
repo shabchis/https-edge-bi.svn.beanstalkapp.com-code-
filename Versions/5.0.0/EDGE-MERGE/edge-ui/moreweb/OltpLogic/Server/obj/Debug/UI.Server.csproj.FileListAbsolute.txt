@@ -1,0 +1,7 @@
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Server\bin\Edge.UI.Server.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Server\bin\Edge.UI.Server.pdb
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Server\bin\Edge.UI.Data.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Server\bin\Edge.UI.Data.pdb
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Server\obj\Debug\UI.Server.csprojResolveAssemblyReference.cache
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Server\obj\Debug\Edge.UI.Server.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Server\obj\Debug\Edge.UI.Server.pdb

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7466FD20-A838-4359-8620-273FDE4E5470}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Build_Project</RootNamespace>
+    <AssemblyName>Build Project</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Edge|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\deployment\EDGE1\Edge.BI\2.9.1\Services\Services</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseAppConfigForCompiler>false</UseAppConfigForCompiler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Seperia|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\deployment\EDGE1\Seperia\2.9.1\Services\Services</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseAppConfigForCompiler>false</UseAppConfigForCompiler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'EdgeQA|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\deployment\EDGE1\Seperia\2.9.1QA\Services\Services</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseAppConfigForCompiler>false</UseAppConfigForCompiler>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\edge-framework\Edge.Data.Pipeline.Metrics\trunk\Edge.Data.Pipeline.Metrics.csproj">
+      <Project>{16440453-3AC6-48DA-A424-E87CE8DE09CF}</Project>
+      <Name>Edge.Data.Pipeline.Metrics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-framework\Edge.Core.Scheduling\trunk\Edge.Core.Scheduling.csproj">
+      <Project>{E700E7AA-08B7-44C3-8889-ACB4FAF92C90}</Project>
+      <Name>Edge.Core.Scheduling</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-framework\Edge.Core\trunk\Edge.Core.csproj">
+      <Project>{AD4B53AD-B28A-4E90-9483-D2F7C8E6D436}</Project>
+      <Name>Edge.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-framework\Edge.Data.Pipeline\trunk\Edge.Data.Pipeline.csproj">
+      <Project>{53391A99-E8CA-4262-A8E0-5F05A1CC6608}</Project>
+      <Name>Edge.Data.Pipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-services\Edge.Services.AdMetrics.Validations\trunk\Edge.Services.AdMetrics.Validations.csproj">
+      <Project>{C6504C8B-C482-41B9-BC6E-BEF92AF9D6FE}</Project>
+      <Name>Edge.Services.AdMetrics.Validations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-services\Edge.Services.BackOffice.EasyForex\trunk\Edge.Services.BackOffice.EasyForex.csproj">
+      <Project>{E87CD0B6-873B-43D2-88DB-BC2D7C56F09E}</Project>
+      <Name>Edge.Services.BackOffice.EasyForex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-services\Edge.Services.BackOffice.Generic\trunk\Edge.Services.BackOffice.Generic.csproj">
+      <Project>{2AAA976A-3BE0-4A44-9A74-6406C02E1BB8}</Project>
+      <Name>Edge.Services.BackOffice.Generic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-services\Edge.Services.Currencies\Edge.Services.Currencies.csproj">
+      <Project>{92e03241-ad17-40d6-b22c-06dec37b4abe}</Project>
+      <Name>Edge.Services.Currencies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-services\Edge.Services.Facebook.GraphApi\trunk\Edge.Services.Facebook.GraphApi.csproj">
+      <Project>{0CA66633-F417-4724-9FC5-5F8C6E1D72B5}</Project>
+      <Name>Edge.Services.Facebook.GraphApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-services\Edge.Services.GenericMetrics.Validations\trunk\Edge.Services.GenericMetrics.Validations.csproj">
+      <Project>{7CBBE059-4A66-4DFF-81C7-EDA1D7094218}</Project>
+      <Name>Edge.Services.GenericMetrics.Validations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-services\Edge.Services.Google.Analytics\trunk\Edge.Services.Google.Analytics.csproj">
+      <Project>{C2150589-9BB4-4143-BD60-3BF5AC013972}</Project>
+      <Name>Edge.Services.Google.Analytics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-services\Edge.Services.Microsoft.AdCenter\trunk\Edge.Services.Microsoft.AdCenter.csproj">
+      <Project>{C73E557C-2B70-4040-9FA5-5AA2C0A95717}</Project>
+      <Name>Edge.Services.Microsoft.AdCenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-services\Edge.Services.SalesForce\Edge.Services.SalesForce.csproj">
+      <Project>{C4C1D909-D765-42AD-8FA8-F51A3D93457D}</Project>
+      <Name>Edge.Services.SalesForce</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\edge-services\Google.Adwords.V201309\branch\Edge.Services.Google.AdWords.V201309.csproj">
+      <Project>{4eaeb38d-bb85-433a-99de-23b722316aeb}</Project>
+      <Name>Edge.Services.Google.AdWords.V201309</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild">
+    <Delete Files="$(OutputPath)$(TargetFileName)" />
+    <!--<Delete Files="$(OutputPath)$(TargetFileName).config" />-->
+    <Delete Files="$(OutputPath)$(TargetName).pdb" />
+    <ItemGroup>
+      <DeleteAfterBuild Include="$(OutputPath)*.xml" />
+    </ItemGroup>
+    <Delete Files="@(DeleteAfterBuild)" />
+  </Target>
+</Project>

@@ -1,0 +1,5 @@
+D:\Edge\Codebase\EDGE-MERGE\deployment\EDGE1\Seperia\2.9.1\Services\Build.Scheduler.dll
+D:\Edge\Codebase\EDGE-MERGE\deployment\EDGE1\Seperia\2.9.1\Services\Build.Scheduler.pdb
+D:\Edge\Codebase\EDGE-MERGE\edge-build\Edge Build\Built.Scheduler\obj\Seperia\Build.Scheduler.csprojResolveAssemblyReference.cache
+D:\Edge\Codebase\EDGE-MERGE\edge-build\Edge Build\Built.Scheduler\obj\Seperia\Build.Scheduler.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-build\Edge Build\Built.Scheduler\obj\Seperia\Build.Scheduler.pdb

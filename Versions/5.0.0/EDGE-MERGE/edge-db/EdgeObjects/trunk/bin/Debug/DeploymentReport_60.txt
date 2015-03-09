@@ -1,0 +1,31 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [dbo].[ConversionAlerts] (Procedure)
+       [EdgeObjects] (Assembly)
+     Create
+       [EdgeObjects] (Assembly)
+       [dbo].[ConversionAlerts] (Procedure)
+
+** Supporting actions
+     Drop
+       [dbo].[GetTableStructureByName_DisplayOnly] (Procedure)
+       [dbo].[Enums_UpdateFromAssembly] (Procedure)
+       [dbo].[GetDataByVirtualTableName] (Procedure)
+       [dbo].[GetTablesNamesByAccountID] (Procedure)
+       [dbo].[GetTableStructureByName] (Procedure)
+     Create
+       [dbo].[GetTableStructureByName_DisplayOnly] (Procedure)
+       [dbo].[Enums_UpdateFromAssembly] (Procedure)
+       [dbo].[GetDataByVirtualTableName] (Procedure)
+       [dbo].[GetTablesNamesByAccountID] (Procedure)
+       [dbo].[GetTableStructureByName] (Procedure)
