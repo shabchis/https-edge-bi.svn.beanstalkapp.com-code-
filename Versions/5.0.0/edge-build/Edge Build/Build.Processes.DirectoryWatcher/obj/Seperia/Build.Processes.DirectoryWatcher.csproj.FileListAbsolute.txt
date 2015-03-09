@@ -1,5 +1,0 @@
-D:\Edge\Codebase\EDGE-MERGE\deployment\EDGE1\Seperia\2.9\Processes\DirectoryWatcher\Build Project.dll
-D:\Edge\Codebase\EDGE-MERGE\deployment\EDGE1\Seperia\2.9\Processes\DirectoryWatcher\Build Project.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-build\Edge Build\Build.Processes.DirectoryWatcher\obj\Seperia\Build.Processes.DirectoryWatcher.csprojResolveAssemblyReference.cache
-D:\Edge\Codebase\EDGE-MERGE\edge-build\Edge Build\Build.Processes.DirectoryWatcher\obj\Seperia\Build Project.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-build\Edge Build\Build.Processes.DirectoryWatcher\obj\Seperia\Build Project.pdb

@@ -1,5 +1,0 @@
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\bin\Debug\Edge.Utilities.CLR.AccountAnalysisSettings.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\bin\Debug\Edge.Utilities.CLR.AccountAnalysisSettings.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\obj\Debug\ResolveAssemblyReference.cache
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\obj\Debug\Edge.Utilities.CLR.AccountAnalysisSettings.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\obj\Debug\Edge.Utilities.CLR.AccountAnalysisSettings.pdb

@@ -1,5 +1,0 @@
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core\trunk\bin\EdgeQA\Edge.Core.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core\trunk\bin\EdgeQA\Edge.Core.pdb
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core\trunk\bin\EdgeQA\log4net.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core\trunk\obj\EdgeQA\Edge.Core.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core\trunk\obj\EdgeQA\Edge.Core.pdb

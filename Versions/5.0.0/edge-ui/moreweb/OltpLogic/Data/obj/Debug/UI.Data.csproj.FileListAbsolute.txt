@@ -1,5 +1,0 @@
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Data\bin\Debug\Edge.UI.Data.dll.config
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Data\bin\Debug\Edge.UI.Data.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Data\bin\Debug\Edge.UI.Data.pdb
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Data\obj\Debug\Edge.UI.Data.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\OltpLogic\Data\obj\Debug\Edge.UI.Data.pdb

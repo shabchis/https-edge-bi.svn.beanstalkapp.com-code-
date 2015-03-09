@@ -1,8 +1,0 @@
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeDeliveries\trunk\bin\Debug\EdgeDeliveries.dacpac
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeDeliveries\trunk\obj\Debug\EdgeDeliveries.sqlprojResolveAssemblyReference.cache
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeDeliveries\trunk\obj\Debug\Model.xml
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeDeliveries\trunk\obj\Debug\refactor.xml
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeDeliveries\trunk\obj\Debug\postdeploy.sql
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeDeliveries\trunk\obj\Debug\predeploy.sql
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeDeliveries\trunk\obj\Debug\EdgeDeliveries.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeDeliveries\trunk\obj\Debug\EdgeDeliveries.pdb

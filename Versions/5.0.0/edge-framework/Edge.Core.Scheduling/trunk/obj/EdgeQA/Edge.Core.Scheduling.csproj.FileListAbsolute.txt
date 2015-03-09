@@ -1,8 +1,0 @@
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\EdgeQA\Edge.Core.Scheduling.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\EdgeQA\Edge.Core.Scheduling.pdb
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\EdgeQA\Edge.Core.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\EdgeQA\log4net.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\EdgeQA\Edge.Core.pdb
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\obj\EdgeQA\Edge.Core.Scheduling.csprojResolveAssemblyReference.cache
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\obj\EdgeQA\Edge.Core.Scheduling.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\obj\EdgeQA\Edge.Core.Scheduling.pdb
