@@ -1,0 +1,9 @@
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Alerts\bin\Debug\Alerts.dacpac
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Alerts\bin\Debug\Alerts.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Alerts\bin\Debug\Alerts.pdb
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Alerts\obj\Debug\Model.xml
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Alerts\obj\Debug\refactor.xml
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Alerts\obj\Debug\postdeploy.sql
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Alerts\obj\Debug\predeploy.sql
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Alerts\obj\Debug\Alerts.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Alerts\obj\Debug\Alerts.pdb

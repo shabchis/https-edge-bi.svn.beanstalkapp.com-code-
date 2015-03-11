@@ -1,0 +1,7 @@
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\EdgeBiUI\EdgeBiUI\bin\EdgeBiUI.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\EdgeBiUI\EdgeBiUI\bin\EdgeBiUI.pdb
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\EdgeBiUI\EdgeBiUI\bin\Edge.UI.Data.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\EdgeBiUI\EdgeBiUI\bin\Edge.UI.Data.pdb
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\EdgeBiUI\EdgeBiUI\obj\Debug\EdgeBiUI.csprojResolveAssemblyReference.cache
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\EdgeBiUI\EdgeBiUI\obj\Debug\EdgeBiUI.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-ui\moreweb\EdgeBiUI\EdgeBiUI\obj\Debug\EdgeBiUI.pdb

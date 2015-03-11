@@ -1,0 +1,28 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [Edge.Utilities.CLR.Alerts.CampaignCPA].[SqlAssemblyProjectRoot] (Extended Property)
+       [Edge.Utilities.CLR.Alerts.CampaignCPA] (Assembly)
+     Create
+       [Edge.Utilities.CLR.Alerts.CampaignCPA] (Assembly)
+       [dbo].[CLR_Alerts_ConversionAnalysis_Adgroup_Test] (Procedure)
+       [dbo].[CLR_Alerts_ConversionAnalysis_Test] (Procedure)
+
+** Supporting actions
+     Drop
+       [dbo].[CLR_Alerts_ConversionAnalysis] (Procedure)
+       [dbo].[CLR_Alerts_ConversionAnalysis_Adgroup] (Procedure)
+
+If this deployment is executed, [dbo].[CLR_Alerts_ConversionAnalysis] will be dropped and not re-created.
+If this deployment is executed, [dbo].[CLR_Alerts_ConversionAnalysis_Adgroup] will be dropped and not re-created.
+The project and target databases have different collation settings. Deployment errors might occur.
+

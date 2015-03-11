@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='_ConversionReport_Files/ConversionReport.xslt'?>
+<UpgradeLog>
+  <Properties>
+    <Property Name="Project" Value="ConvAlerts" />
+    <Property Name="Project File" Value="D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\ConvAlerts\ConvAlerts.csproj" />
+    <Property Name="Date" Value="יום שני 10 דצמבר 2012" />
+    <Property Name="Time" Value="15:28" />
+  </Properties>
+  <Event ErrorLevel="0" Project="D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\ConvAlerts\ConvAlerts.csproj" Source="..\ConvAlerts.csproj" Description="Project was successfully converted: 'D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\ConvAlerts\ConvAlerts.csproj' to 'D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\ConvAlerts\ConvAlerts.sqlproj'" />
+  <Event ErrorLevel="3" Project="D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\ConvAlerts\ConvAlerts.csproj" Source="..\ConvAlerts.csproj" Description="Converted" />
+</UpgradeLog>

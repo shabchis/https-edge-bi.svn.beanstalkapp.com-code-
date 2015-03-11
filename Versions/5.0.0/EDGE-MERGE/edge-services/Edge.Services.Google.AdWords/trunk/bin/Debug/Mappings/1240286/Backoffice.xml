@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>	
+<Mappings>
+<Object Type="GenericMetricsUnit">
+<Map To='SegmentDimensions[{GetSegment("Tracker")}]' >
+<Read Var="tracker" Field='ID' Required='true'/>
+<Map To='Value' Value='{tracker}'/>
+</Map>
+
+<Map To='MeasureValues[{GetMeasure("ClientSpecific1")}]' Field= 'TotalPlansRegistrations' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific2")}]' Field= 'TotalPlansPurchases' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific3")}]' Field= 'TotalPlansSelected' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific4")}]' Field= 'Lead' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific5")}]' Field= 'SelectFreePlan' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific6")}]' Field= 'SelectProPlan' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific7")}]' Field= 'SelectSuperPlan' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific8")}]' Field= 'FreePlanRegs' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific9")}]' Field= 'ProPlanRegs' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific10")}]' Field= 'SuperPlanRegs' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific11")}]' Field= 'ProPlanPurchase' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific12")}]' Field= 'SuperPlanPurchase' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific13")}]' Field= 'ProPlanPayout' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific14")}]' Field= 'SuperPlanPayout' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific15")}]' Field= 'CampaignCreated' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific16")}]' Field= 'LandingPage1' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific17")}]' Field= 'LandingPage2' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific18")}]' Field= 'WelcomeButtonPressed' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific19")}]' Field= 'SaveButtonPressed' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific20")}]' Field= 'Ads' />
+<Map To='MeasureValues[{GetMeasure("ClientSpecific21")}]' Field= 'GoogleAnalyticsUniqueUsers' />
+
+
+</Object>
+</Mappings>

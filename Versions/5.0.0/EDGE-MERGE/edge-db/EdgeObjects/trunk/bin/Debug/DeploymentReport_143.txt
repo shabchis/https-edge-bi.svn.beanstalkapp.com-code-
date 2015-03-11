@@ -1,0 +1,26 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [EdgeObjects] (Assembly)
+     Create
+       [EdgeObjects] (Assembly)
+       [dbo].[CLR_Alerts_ConversionAnalysis] (Procedure)
+
+** Supporting actions
+     Drop
+       [dbo].[Enums_UpdateFromAssembly] (Procedure)
+       [dbo].[CLR_GetTablesList] (Procedure)
+       [dbo].[CLR_GetTableStructure] (Procedure)
+     Create
+       [dbo].[Enums_UpdateFromAssembly] (Procedure)
+       [dbo].[CLR_GetTablesList] (Procedure)
+       [dbo].[CLR_GetTableStructure] (Procedure)

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugScriptFileName>Test Scripts\GetDataByVirtualTableName.sql</DebugScriptFileName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugScriptFileName>Test Scripts\GetDataByVirtualTableName.sql</DebugScriptFileName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetDatabase>
+    </TargetDatabase>
+    <StartupScript>Test Scripts\GetTableStructureByName.sql</StartupScript>
+    <StartAction>StartScript</StartAction>
+    <StartupScriptList>Test Scripts\GetTableStructureByName.sql/Test Scripts\Test.sql</StartupScriptList>
+    <TargetConnectionString>
+    </TargetConnectionString>
+  </PropertyGroup>
+</Project>

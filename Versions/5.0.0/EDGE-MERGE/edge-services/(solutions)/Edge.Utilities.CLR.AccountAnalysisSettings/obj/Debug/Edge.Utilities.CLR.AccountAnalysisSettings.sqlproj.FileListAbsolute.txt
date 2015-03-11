@@ -1,0 +1,9 @@
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\bin\Debug\Edge.Utilities.CLR.AccountAnalysisSettings.dacpac
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\bin\Debug\Edge.Utilities.CLR.AccountAnalysisSettings.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\bin\Debug\Edge.Utilities.CLR.AccountAnalysisSettings.pdb
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\obj\Debug\Edge.Utilities.CLR.AccountAnalysisSettings.dll
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\obj\Debug\Edge.Utilities.CLR.AccountAnalysisSettings.pdb
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\obj\Debug\Model.xml
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\obj\Debug\refactor.xml
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\obj\Debug\postdeploy.sql
+D:\Edge\Code\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.AccountAnalysisSettings\obj\Debug\predeploy.sql
