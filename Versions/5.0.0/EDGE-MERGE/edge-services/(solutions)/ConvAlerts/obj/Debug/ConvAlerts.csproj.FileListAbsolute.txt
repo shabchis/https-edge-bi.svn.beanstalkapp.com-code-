@@ -1,4 +1,0 @@
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\ConvAlerts\bin\Debug\ConvAlerts.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\ConvAlerts\bin\Debug\ConvAlerts.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\ConvAlerts\obj\Debug\ConvAlerts.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\ConvAlerts\obj\Debug\ConvAlerts.pdb

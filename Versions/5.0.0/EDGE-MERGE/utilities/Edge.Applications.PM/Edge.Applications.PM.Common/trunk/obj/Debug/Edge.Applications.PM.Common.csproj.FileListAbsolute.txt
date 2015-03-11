@@ -1,4 +1,0 @@
-D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Edge.Applications.PM.Common\trunk\bin\Debug\Edge.Applications.PM.Common.dll
-D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Edge.Applications.PM.Common\trunk\bin\Debug\Edge.Applications.PM.Common.pdb
-D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Edge.Applications.PM.Common\trunk\obj\Debug\Edge.Applications.PM.Common.dll
-D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Edge.Applications.PM.Common\trunk\obj\Debug\Edge.Applications.PM.Common.pdb

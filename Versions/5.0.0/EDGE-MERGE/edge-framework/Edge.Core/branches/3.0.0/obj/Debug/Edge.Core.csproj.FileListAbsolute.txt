@@ -1,7 +1,0 @@
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Core\branches\3.0.0\bin\Debug\Edge.Core.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Core\branches\3.0.0\bin\Debug\Edge.Core.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Core\branches\3.0.0\bin\Debug\log4net.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Core\branches\3.0.0\obj\Debug\Edge.Core.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Core\branches\3.0.0\obj\Debug\Edge.Core.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Core\branches\3.0.0\bin\Debug\Newtonsoft.Json.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Core\branches\3.0.0\obj\Debug\Edge.Core.csprojResolveAssemblyReference.cache

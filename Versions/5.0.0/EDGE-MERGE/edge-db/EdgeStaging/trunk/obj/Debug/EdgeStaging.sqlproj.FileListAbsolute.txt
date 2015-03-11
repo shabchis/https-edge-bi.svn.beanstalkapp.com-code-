@@ -1,5 +1,0 @@
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeStaging\trunk\bin\Debug\EdgeStaging.dacpac
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeStaging\trunk\bin\Debug\EdgeStaging.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeStaging\trunk\bin\Debug\EdgeStaging.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeStaging\trunk\obj\Debug\EdgeStaging.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-db\EdgeStaging\trunk\obj\Debug\EdgeStaging.pdb

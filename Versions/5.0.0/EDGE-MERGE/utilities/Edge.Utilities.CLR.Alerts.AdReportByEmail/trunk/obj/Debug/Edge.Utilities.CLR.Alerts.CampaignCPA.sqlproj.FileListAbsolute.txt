@@ -1,9 +1,0 @@
-D:\Edge\Code\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.CampaignCPA\trunk\bin\Debug\Edge.Utilities.CLR.Alerts.CampaignCPA.dacpac
-D:\Edge\Code\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.CampaignCPA\trunk\bin\Debug\Edge.Utilities.CLR.Alerts.CampaignCPA.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.CampaignCPA\trunk\bin\Debug\Edge.Utilities.CLR.Alerts.CampaignCPA.pdb
-D:\Edge\Code\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.CampaignCPA\trunk\obj\Debug\Edge.Utilities.CLR.Alerts.CampaignCPA.dll
-D:\Edge\Code\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.CampaignCPA\trunk\obj\Debug\Edge.Utilities.CLR.Alerts.CampaignCPA.pdb
-D:\Edge\Code\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.CampaignCPA\trunk\obj\Debug\Model.xml
-D:\Edge\Code\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.CampaignCPA\trunk\obj\Debug\refactor.xml
-D:\Edge\Code\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.CampaignCPA\trunk\obj\Debug\postdeploy.sql
-D:\Edge\Code\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.CampaignCPA\trunk\obj\Debug\predeploy.sql

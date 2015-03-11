@@ -1,1 +1,0 @@
-EdgeServiceHost /WizardService
