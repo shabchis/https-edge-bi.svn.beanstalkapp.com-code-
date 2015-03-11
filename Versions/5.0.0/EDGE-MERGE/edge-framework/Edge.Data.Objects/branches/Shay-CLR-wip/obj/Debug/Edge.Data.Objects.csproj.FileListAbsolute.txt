@@ -1,7 +1,0 @@
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects\branches\Shay-CLR-wip\bin\Debug\Edge.Data.Objects.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects\branches\Shay-CLR-wip\bin\Debug\Edge.Data.Objects.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects\branches\Shay-CLR-wip\bin\Debug\Eggplant.Entities.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects\branches\Shay-CLR-wip\bin\Debug\Eggplant.Entities.pdb
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects\branches\Shay-CLR-wip\obj\Debug\Edge.Data.Objects.csprojResolveAssemblyReference.cache
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects\branches\Shay-CLR-wip\obj\Debug\Edge.Data.Objects.dll
-D:\Edge\Codebase\EDGE-MERGE\edge-framework\Edge.Data.Objects\branches\Shay-CLR-wip\obj\Debug\Edge.Data.Objects.pdb

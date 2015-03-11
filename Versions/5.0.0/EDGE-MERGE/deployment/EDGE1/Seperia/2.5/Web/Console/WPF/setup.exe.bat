@@ -1,1 +1,0 @@
-"C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\MT.EXE" -manifest .\setup.exe.manifest -outputresource:setup.exe;1
