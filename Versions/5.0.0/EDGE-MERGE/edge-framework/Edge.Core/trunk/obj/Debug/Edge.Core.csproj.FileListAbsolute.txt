@@ -22,3 +22,9 @@ C:\Edge\Code\EDGE-MERGE\edge-framework\Edge.Core\trunk\obj\Debug\Edge.Core.dll
 C:\Edge\Code\EDGE-MERGE\edge-framework\Edge.Core\trunk\obj\Debug\Edge.Core.pdb
 C:\Edge\Code\EDGE-MERGE\edge-framework\Edge.Core\trunk\bin\Debug\Edge.Core.pdb
 C:\Edge\Code\EDGE-MERGE\edge-framework\Edge.Core\trunk\obj\Debug\Edge.Core.csprojResolveAssemblyReference.cache
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core\trunk\bin\Debug\Edge.Core.dll
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core\trunk\bin\Debug\Edge.Core.pdb
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core\trunk\bin\Debug\log4net.dll
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core\trunk\obj\Debug\Edge.Core.csprojResolveAssemblyReference.cache
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core\trunk\obj\Debug\Edge.Core.dll
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core\trunk\obj\Debug\Edge.Core.pdb

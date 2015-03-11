@@ -2,6 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>D:\Edge\Code\EDGE-MERGE\utilities\Edge.Applications.TempScheduler %282.9%29\trunk\bin\Debug\scheduler-291.exe</StartProgram>
+    <StartProgram>C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\utilities\Edge.Applications.TempScheduler %282.9%29\trunk\bin\Debug\scheduler-291.exe</StartProgram>
   </PropertyGroup>
 </Project>
