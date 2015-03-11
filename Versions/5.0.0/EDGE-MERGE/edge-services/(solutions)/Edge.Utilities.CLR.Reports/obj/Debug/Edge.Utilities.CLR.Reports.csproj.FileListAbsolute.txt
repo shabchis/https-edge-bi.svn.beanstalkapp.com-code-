@@ -1,0 +1,4 @@
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.Reports\bin\Debug\Edge.Utilities.CLR.Reports.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.Reports\bin\Debug\Edge.Utilities.CLR.Reports.pdb
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.Reports\obj\Debug\Edge.Utilities.CLR.Reports.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.Reports\obj\Debug\Edge.Utilities.CLR.Reports.pdb

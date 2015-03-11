@@ -1,0 +1,10 @@
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.SignatureMigration\bin\Debug\Edge.Utilities.CLR.SignatureMigration.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.SignatureMigration\bin\Debug\Edge.Utilities.CLR.SignatureMigration.pdb
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.SignatureMigration\obj\Debug\ResolveAssemblyReference.cache
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.SignatureMigration\obj\Debug\Edge.Utilities.CLR.SignatureMigration.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Utilities.CLR.SignatureMigration\obj\Debug\Edge.Utilities.CLR.SignatureMigration.pdb
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.SignatureMigration\bin\Debug\Edge.Utilities.CLR.SignatureMigration.dll
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.SignatureMigration\bin\Debug\Edge.Utilities.CLR.SignatureMigration.pdb
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.SignatureMigration\obj\Debug\ResolveAssemblyReference.cache
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.SignatureMigration\obj\Debug\Edge.Utilities.CLR.SignatureMigration.dll
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Utilities.CLR.SignatureMigration\obj\Debug\Edge.Utilities.CLR.SignatureMigration.pdb

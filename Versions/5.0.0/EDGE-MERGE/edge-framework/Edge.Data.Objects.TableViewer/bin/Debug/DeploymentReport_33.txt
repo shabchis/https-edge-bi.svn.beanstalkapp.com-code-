@@ -1,0 +1,31 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [Edge.Data.Objects.TableViewer] (Assembly)
+       [Edge.Data.Objects] (Assembly)
+     Alter
+       [Eggplant.Entities] (Assembly)
+     Create
+       [Edge.Data.Objects] (Assembly)
+       [Edge.Data.Objects.TableViewer] (Assembly)
+       [dbo].[GetTableStructureByName] (Procedure)
+
+** Supporting actions
+     Drop
+       [dbo].[GetDataByVirtualTableName] (Procedure)
+       [dbo].[GetTablesNamesByAccountID] (Procedure)
+     Create
+       [dbo].[GetDataByVirtualTableName] (Procedure)
+       [dbo].[GetTablesNamesByAccountID] (Procedure)
+
+The project and target databases have different collation settings. Deployment errors might occur.
+

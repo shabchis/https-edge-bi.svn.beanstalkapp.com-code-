@@ -1,0 +1,6 @@
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.MeasureEditor\trunk\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.MeasureEditor\trunk\obj\x86\Debug\Edge.Applications.PM.Suite.EditMeasureForm.resources
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.MeasureEditor\trunk\obj\x86\Debug\Edge.Applications.PM.Suite.MeasureForm.resources
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.MeasureEditor\trunk\obj\x86\Debug\Edge.Applications.PM.Suite.Properties.Resources.resources
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.MeasureEditor\trunk\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.Suite.MeasureEditor\trunk\obj\x86\Debug\GenerateResource.write.1.tlog

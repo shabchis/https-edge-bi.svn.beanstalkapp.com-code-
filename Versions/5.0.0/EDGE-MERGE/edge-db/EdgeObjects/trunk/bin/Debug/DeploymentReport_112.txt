@@ -1,0 +1,32 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [dbo].[ConversionPPCAlerts] (Procedure)
+       [EdgeObjects] (Assembly)
+     Alter
+       [Eggplant.Entities] (Assembly)
+       [Edge.Data.Objects] (Assembly)
+     Create
+       [EdgeObjects] (Assembly)
+       [dbo].[ConversionPPCAlerts] (Procedure)
+
+** Supporting actions
+     Drop
+       [dbo].[ConversionAnalysisAlerts] (Procedure)
+       [dbo].[Enums_UpdateFromAssembly] (Procedure)
+       [dbo].[GetTablesList] (Procedure)
+       [dbo].[GetTableStructureByName] (Procedure)
+     Create
+       [dbo].[ConversionAnalysisAlerts] (Procedure)
+       [dbo].[Enums_UpdateFromAssembly] (Procedure)
+       [dbo].[GetTablesList] (Procedure)
+       [dbo].[GetTableStructureByName] (Procedure)

@@ -1,0 +1,4 @@
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Eggplant.Entities\trunk\bin\Debug\Eggplant.Entities.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Eggplant.Entities\trunk\bin\Debug\Eggplant.Entities.pdb
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Eggplant.Entities\trunk\obj\Debug\Eggplant.Entities.dll
+D:\Edge\Codebase\EDGE-MERGE\edge-framework\Eggplant.Entities\trunk\obj\Debug\Eggplant.Entities.pdb

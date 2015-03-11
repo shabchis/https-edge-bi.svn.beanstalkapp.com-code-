@@ -1,0 +1,1 @@
+D:\Edge\Codebase\EDGE-MERGE\edge-services\(solutions)\Edge.Data.CurrencyTransform\obj\Debug\ResolveAssemblyReference.cache

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/AuxiliaryScripts.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/tabs/tabs.js")" type="text/javascript"></script>
+    
+    @{
+        <script type="text/javascript">
+            applicationPath = "@Url.Content("~")";
+        </script>
+    }
+</head>
+
+<body>
+
+    <div id="ScreenOverlay"></div>
+    <div id="LoadingMessage">Loading...</div>
+    <div id="SiteContainer" style="min-width:780px;">
+    @RenderBody()
+    </div>
+
+
+    <div id="ControllerDialogDiv" class="ControllerDialogDiv" style="display:none;">
+    </div>
+
+
+    
+
+</body>
+</html>

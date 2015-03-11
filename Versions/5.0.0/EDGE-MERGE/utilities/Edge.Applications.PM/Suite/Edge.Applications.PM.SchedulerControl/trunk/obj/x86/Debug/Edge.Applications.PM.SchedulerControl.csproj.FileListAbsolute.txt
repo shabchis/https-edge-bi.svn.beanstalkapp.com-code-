@@ -1,0 +1,10 @@
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.SchedulerControl\trunk\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.SchedulerControl\trunk\obj\x86\Debug\Log.baml
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.SchedulerControl\trunk\obj\x86\Debug\History.g.cs
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.SchedulerControl\trunk\obj\x86\Debug\Log.g.cs
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.SchedulerControl\trunk\obj\x86\Debug\MainWindow.g.cs
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.SchedulerControl\trunk\obj\x86\Debug\App.g.cs
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.SchedulerControl\trunk\obj\x86\Debug\Edge.Applications.PM.SchedulerControl_Content.g.cs
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.SchedulerControl\trunk\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.SchedulerControl\trunk\obj\x86\Debug\Edge.Applications.PM.SchedulerControl_MarkupCompile.cache
+D:\Edge\Codebase\EDGE-MERGE\utilities\Edge.Applications.PM\Suite\Edge.Applications.PM.SchedulerControl\trunk\obj\x86\Debug\Edge.Applications.PM.SchedulerControl_MarkupCompile.lref
