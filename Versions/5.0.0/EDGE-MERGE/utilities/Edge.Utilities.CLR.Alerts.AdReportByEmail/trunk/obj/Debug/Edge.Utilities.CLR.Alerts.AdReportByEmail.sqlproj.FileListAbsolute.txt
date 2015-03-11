@@ -16,3 +16,8 @@ C:\Edge\Code\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.AdReportByEmail\trun
 C:\Edge\Code\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.AdReportByEmail\trunk\obj\Debug\refactor.xml
 C:\Edge\Code\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.AdReportByEmail\trunk\obj\Debug\postdeploy.sql
 C:\Edge\Code\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.AdReportByEmail\trunk\obj\Debug\predeploy.sql
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.AdReportByEmail\trunk\bin\Debug\Edge.Utilities.CLR.Alerts.AdReportByEmail.dacpac
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.AdReportByEmail\trunk\bin\Debug\Edge.Utilities.CLR.Alerts.AdReportByEmail.dll
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.AdReportByEmail\trunk\bin\Debug\Edge.Utilities.CLR.Alerts.AdReportByEmail.pdb
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.AdReportByEmail\trunk\obj\Debug\Edge.Utilities.CLR.Alerts.AdReportByEmail.dll
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\utilities\Edge.Utilities.CLR.Alerts.AdReportByEmail\trunk\obj\Debug\Edge.Utilities.CLR.Alerts.AdReportByEmail.pdb

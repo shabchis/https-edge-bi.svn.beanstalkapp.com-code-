@@ -30,3 +30,11 @@ C:\Edge\Code\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\obj\Debug\Edge
 C:\Edge\Code\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\obj\Debug\Edge.Core.Scheduling.dll
 C:\Edge\Code\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\obj\Debug\Edge.Core.Scheduling.pdb
 C:\Edge\Code\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\Debug\Edge.Core.pdb
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\Debug\Edge.Core.Scheduling.dll
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\Debug\Edge.Core.Scheduling.pdb
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\Debug\Edge.Core.dll
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\Debug\log4net.dll
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\bin\Debug\Edge.Core.pdb
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\obj\Debug\Edge.Core.Scheduling.csprojResolveAssemblyReference.cache
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\obj\Debug\Edge.Core.Scheduling.dll
+C:\Edge\Code\Versions\5.0.0\EDGE-MERGE\edge-framework\Edge.Core.Scheduling\trunk\obj\Debug\Edge.Core.Scheduling.pdb
